@@ -45,12 +45,16 @@
 
 <body>
     <header class="container-fluid fixed-top">
+
+        <!-- Homepage Logo -->
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <h2 class="logo-font text-black my-0">Granite Tap</h2>
                 </a>
             </div>
+
+            <!-- searchbar -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="">
                     <div class="input-group w-100">
@@ -68,6 +72,7 @@
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <!-- About Link -->
                     <li class="list-inline-item">
                         <a class="text-info text-black nav-link p-0" href="">
                             <div class="text-center">
@@ -76,6 +81,7 @@
                             </div>
                         </a>
                     </li>
+                    <!-- My Account  -->
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link p-0" href="#" id="user-options" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -97,6 +103,7 @@
                             {% endif %}
                         </div>
                     </li>
+                    <!-- Shopping Basket -->
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link p-0"
                             href="">
@@ -113,6 +120,25 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        <!-- Sub Menus -->
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
+        </div>
+
+        <!-- Delivery Banner -->
+        <div id="delivery-banner" class="row text-center bg-black">
+            <div class="col bg-black text-white">
+                <h4 class="logo-font my-1">Free delivery on orders over £{{ free_shipping_threshold }}!</h4>
             </div>
         </div>
     </header>

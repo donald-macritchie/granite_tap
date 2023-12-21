@@ -58,6 +58,10 @@ body {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background: #000 !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -81,3 +85,17 @@ body {
         padding-top: 164px;
     }
 }
+
+ 
+@media (max-width: 768px) {
+    #hero-text {
+        font-size: 1.8em;
+        margin-top: 150px;
+    }
+
+@media (max-width: 425px) {
+    #hero-text {
+        font-size: 1.8em;
+    }
+
+
