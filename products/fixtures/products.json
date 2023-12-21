@@ -1,0 +1,362 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "PIPA54225",
+            "name": "Punk IPA",
+            "brewery": "Brewdog",
+            "abv": "5.4",
+            "beer_type": "Ale",
+            "description": "Punk IPA is the beer that kick-started it. This light, golden classic has been subverted with new world hops to create an explosion of flavour. Bursts of caramel and tropical fruit with an all-out riot of grapefruit, pineapple and lychee, precede a spiky bitter finish.",
+            "volume": "440ml",
+            "price": 3.50,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "https://digitalcontent.api.tesco.com/v2/media/ghs/d7267372-0d4c-49e7-bb90-7e542221ca73/53cd7fed-1033-4483-9544-bc87f192bdf2_1586756661.jpeg?h=960&w=960",
+            "image": "punk_ipa.png"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "LL45330",
+            "name": "Lost Lager",
+            "brewery": "Brewdog",
+            "abv": "4.5",
+            "beer_type": "Lager",
+            "description": "This planet first German-style Pilsner is a 4.5% lager brewed using wind power and a third less water. The addition of Spalter Select and Saphir hops combine vibrant citrus and herbal notes for an iconic lager taste that's both crisp and refreshing.",
+            "volume": "440ml",
+            "price": 3.50,
+            "category": 1,
+            "rating": 4.1,
+            "image_url": "https://digitalcontent.api.tesco.com/v2/media/ghs/bbc316bd-4078-45d6-8684-6b15f0a2bc0d/83277831-1abb-48a6-915f-f0459bc176d6_1233195792.jpeg?h=960&w=960",
+            "image": "lost_lager.png"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "HJ535PA",
+            "name": "HJ535PA",
+            "brewery": "Brewdog",
+            "abv": "4.5",
+            "beer_type": "Ale",
+            "description": "New England detuned. This full-tilt fruit machine of an IPA packs all the flavour but less of the alcohol. Notes of pineapple, mango, stone-fruit, and a hint of tangerine to mix it up. Brewed with oats and wheat and left unfiltered for a smooth juicy hit.",
+            "volume": "440ml",
+            "price": 3.50,
+            "category": 2,
+            "rating": 4.3,
+            "image_url": "https://digitalcontent.api.tesco.com/v2/media/ghs/73219faa-86ed-425c-ad03-fcc9103eefca/9d7b7718-8c00-4ec6-90c2-899c2cca4a51_54592343.jpeg?h=960&w=960",
+            "image": "hazy_jane.png"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "BH4135ST",
+            "name": "Black Heart",
+            "brewery": "Brewdog",
+            "abv": "4.1",
+            "beer_type": "Stout",
+            "description": "Forget everything you know about stout. Forget what you think it tastes like. And forget having to go to Dublin to get a good pint of it. There’s a new stout in town, and it’s demanding your attention. Chocolate and extra dark crystal malts give layers of roasted, toasted coffee and cocoa, with a hint of caramel coming through. Classic stout, brewed in and for this century. Old dog, new tricks.",
+            "volume": "440ml",
+            "price": 3.50,
+            "category": 3,
+            "rating": 4.6,
+            "image_url": "https://digitalcontent.api.tesco.com/v2/media/ghs/cc6c3428-fa7c-43ae-b071-6e83df27819f/2392ebab-2b45-4751-8c5d-faeaba221f55_9655908.jpeg?h=960&w=960",
+            "image": "black_heart.png"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "RR7433ST",
+            "name": "Rattle and Rum",
+            "brewery": "Brewdog",
+            "abv": "7.4",
+            "beer_type": "Stout",
+            "description": "Rattle & Rum is our latest foray into the stout style; a limited edition rum and oak chip beer that weighs in at 7.4% abv. Built on a foundation of 5 specialty malts and featuring just one hop variety, it’s rich, boozy, and brings a little Caribbean flair to our craft. ",
+            "volume": "440ml",
+            "price": 3.80,
+            "category": 3,
+            "rating": 4.4,
+            "image_url": "https://digitalcontent.api.tesco.com/v2/media/ghs/a3fc934e-9e07-48ee-8602-fbfcaba86855/4a5c0ced-be4b-4fe4-90ba-e85aa23ed79d_807042763.jpeg?h=960&w=960",
+            "image": "rattle_and_rum.png"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "WH5335L",
+            "name": "Weekend Hooker",
+            "brewery": "Brew Toon",
+            "abv": "5.0",
+            "beer_type": "Lager",
+            "description": "Get hooked on our new craft lager! Reinvented with a bold variety of malts & left to condition until the optimum moment to ensure a smooth head with a soft, refreshing finish. Earthy in aroma, expect a full bodied malt character, with citrusy undertones and an assured bitter finish.",
+            "volume": "440ml",
+            "price": 3.35,
+            "category": 1,
+            "rating": 4.5,
+            "image_url": "https://www.brewtoon.com/uploads/images/products/large/brew-toon-brew-toon-weekend-hooker-440ml-can-1697549132WH.png",
+            "image": "weekend_hooker.png"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "WTTT102720RIS",
+            "name": "Wired To The Toon",
+            "brewery": "Brew Toon",
+            "abv": "10.2",
+            "beer_type": "Stout",
+            "description": "Caramel Macchiato Impy Stout 10.2% A Russian Imperial Stout, soaked in rich caramel, vanilla & coffee flavours. A blend of malt consisting of Carafa, Crystal & Munich, creates a smooth complex body with notes of dark chocolate & toffee. Double infused with UK roasted Bennachie Coffee and left to condition on vanilla & caramel creme, bringing deep macchiato aromas and flavours to this strong, dark brew.",
+            "volume": "440ml",
+            "price": 7.20,
+            "category": 3,
+            "rating": 4.2,
+            "image_url": "https://www.brewtoon.com/uploads/images/products/large/brew-toon-brew-toon-wired-to-the-toon-2023-1701346370BREW-TOON-440-WIRED-TO-THE-TOON.png",
+            "image": "wired_to_the_toon.png"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "T45360PA",
+            "name": "Trawlerman",
+            "brewery": "Brew Toon",
+            "abv": "4.5",
+            "beer_type": "Ale",
+            "description": "Harsh weather, high sea and hardworking folk, Peterhead has them all. Life at sea builds up a thirst like no other, so - once back on dry land, reaching for this crushable hazy champion is the best welcome home any Trawlerman could have. Double dry-hopped with Galaxy & Azacca for a full on citrus and tropical flavour.",
+            "volume": "440ml",
+            "price": 3.60,
+            "category": 2,
+            "rating": 4.9,
+            "image_url": "https://www.brewtoon.com/uploads/images/products/large/brew-toon-brew-toon-trawlerman-440ml-can-1644312508BREW-TOON-440-TRAWLERMAN.png",
+            "image": "trawlerman.png"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "MU585380IPA",
+            "name": "M'ango Unchained",
+            "brewery": "Brew Toon",
+            "abv": "5.8",
+            "beer_type": "Ale",
+            "description": "Crafted with all the hop goodness of an IPA and infused with mouth-watering mango & passion fruits. Tropical on the nose & naturally hazy in colour, we have unchained masses of mango & hops into this one and created a beer that is sharp, edgy and bursting with flavour. “A fortuitous turn of events brought M’ango and ourselves together",
+            "volume": "440ml",
+            "price": 3.80,
+            "category": 2,
+            "rating": 5.0,
+            "image_url": "https://www.brewtoon.com/uploads/images/products/large/brew-toon-brew-toon-m-ango-unchained-440ml-can-1645095948BREW-TOON-440-MANGO-UNCHAINED.png",
+            "image": "m'ango_unchained.png"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "STTP5425S",
+            "name": "Sour To The People",
+            "brewery": "Brew Toon",
+            "abv": "5.0",
+            "beer_type": "Sour",
+            "description": "We gathered as much local rhubarb and strawberries that we could get our hands on to create this blade of a beer, sharp and fruity with a wicked bite. Loaded with fresh rhubarb and kettle soured to amplify the tartness, we have balanced the all round flavour profile by conditioning with fresh, juicy strawberries.",
+            "volume": "440ml",
+            "price": 4.25,
+            "category": 4,
+            "rating": 3.9,
+            "image_url": "https://www.brewtoon.com/uploads/images/products/large/brew-toon-brew-toon-sour-to-the-people-440ml-can-1645186694BREW-TOON-440-SOUR-TO-THE-PEOPLE.png",
+            "image": "sour_to_the_people.png"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "FC40245L",
+            "name": "Fierce Cerveza",
+            "brewery": "Fierce",
+            "abv": "4.0",
+            "beer_type": "Lager",
+            "description": "A crisp, light and refreshing Mexican style lager cut with fresh zesty lime juice and a pinch of sea salt to deliver maximum flavour.",
+            "volume": "440ml",
+            "price": 2.45,
+            "category": 1,
+            "rating": 3.8,
+            "image_url": "https://fiercebeer.com/cdn/shop/files/Cerveza440Shopify-1000pxfor1300pxSQcopy.png?v=1696360045&width=770",
+            "image": "cerveza.png"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "FA52295IPA",
+            "name": "Fierce IPA",
+            "brewery": "Fierce",
+            "abv": "5.2",
+            "beer_type": "Ale",
+            "description": "A crisp and refreshing IPA that is full of citrus hop flavours. Thirst quenching, light bitterness.",
+            "volume": "440ml",
+            "price": 2.95,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "https://fiercebeer.com/cdn/shop/files/FIPAShopify.png?v=1695042303&width=770",
+            "image": "fierce.png"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "FR62425IPA",
+            "name": "Forest Ranger",
+            "brewery": "Fierce",
+            "abv": "6.2",
+            "beer_type": "Ale",
+            "description": "This West Coast IPA has been hopped with Cascade, Simcoe and Amarillo for that classic pungent profile, alongside a touch of Centennial and Citra to layer on the pine and citrus flavours.",
+            "volume": "440ml",
+            "price": 2.25,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "https://fiercebeer.com/cdn/shop/files/ForestRanger440Shopify.png?v=1700238279&width=770",
+            "image": "forest_ranger.png"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "CD84495ST",
+            "name": "Cookie Dough",
+            "brewery": "Fierce",
+            "abv": "8.4",
+            "beer_type": "Stout",
+            "description": "Brewed with our friends at Tartarus, this imperial strength stout is crammed with rich malt, cacao, spices and toasty oats. Sweet, indulgent and ready to roll.",
+            "volume": "440ml",
+            "price": 4.95,
+            "category": 3,
+            "rating": 4.1,
+            "image_url": "https://fiercebeer.com/products/cookie-dough-tartarus-collab-1?_pos=3&_sid=1fe7d465c&_ss=r",
+            "image": "cookie_dough.png"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "BGP45395SOU",
+            "name": "Black Grape Punch",
+            "brewery": "Fierce",
+            "abv": "4.5",
+            "beer_type": "Sour",
+            "description": "This juicy grape soda-inspired beer packs a punch. Bright, tart, and crammed with fruity flavour, it's the latest in our limited edition summery sours.",
+            "volume": "440ml",
+            "price": 3.95,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://fiercebeer.com/products/black-grape-punch?_pos=3&_sid=2b32e43fc&_ss=r",
+            "image": "black_grape_punch.png"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "OM43345IPA",
+            "name": "Omnium",
+            "brewery": "Six° North",
+            "abv": "4.3",
+            "beer_type": "Ale",
+            "description": "Omnium is a full-flavoured Session IPA with bold citrus and tropical fruit notes. Generous doses of Citra, Amarillo, Mosaic & Simcoe hops makes Omnium an all round crowd pleaser!",
+            "volume": "440ml",
+            "price": 3.45,
+            "category": 2,
+            "rating": 4.2,
+            "image_url": "https://images.squarespace-cdn.com/content/v1/5743328322482e6a525abbcc/1695639167879-LBBZ3H9XFN1TKUTF96HD/om+gf.jpg?format=1500w",
+            "image": "omnium.png"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "BAM80460ST",
+            "name": "Barrel Aged Moon",
+            "brewery": "Six° North",
+            "abv": "8.0",
+            "beer_type": "Stout",
+            "description": "Rich sweet Bourbon goodness, big sherry notes and a rewarding finish. Aged in Fattercairn whisky casks.",
+            "volume": "440ml",
+            "price": 4.60,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://images.squarespace-cdn.com/content/v1/5743328322482e6a525abbcc/1698670970492-YMHAT2GZRY2E26WJA9HU/6DN+Barrel+Aged+Moon.jpg?format=1500w",
+            "image": "barrel_aged_moon.png"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "PEL41335LA",
+            "name": "Peleton",
+            "brewery": "Six° North",
+            "abv": "4.1",
+            "beer_type": "Lager",
+            "description": "Peloton is a classic Pilsner, brewed to style; crisp with a noble bitterness. Peloton is produced using Scottish Pilsner malt, German hops and time. A refreshing and super accessible beer.",
+            "volume": "440ml",
+            "price": 3.35,
+            "category": 1,
+            "rating": 3.8,
+            "image_url": "https://images.squarespace-cdn.com/content/v1/5743328322482e6a525abbcc/1659530412623-WXLGDT6S3J6ALEC28JQ9/peoton%2B440%2Bweb.jpeg?format=1500w",
+            "image": "peleton.png"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "SUMBL46390SOU",
+            "name": "Summer Bliss",
+            "brewery": "Six° North",
+            "abv": "4.6",
+            "beer_type": "Sour",
+            "description": "Rhubarb and raspberries were aged in barrel to produce a complex sour beer with a refreshing kick of fruit.",
+            "volume": "440ml",
+            "price": 3.90,
+            "category": 4,
+            "rating": 4.9,
+            "image_url": "https://images.squarespace-cdn.com/content/v1/5743328322482e6a525abbcc/1695640106862-4Z59J4YA6KXADD5LJOLR/summer+bliss.jpg?format=1500w",
+            "image": "summer_bliss.png"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "VEL5390PA",
+            "name": "Velodrome",
+            "brewery": "Six° North",
+            "abv": "5.0",
+            "beer_type": "Ale",
+            "description": "Bursting with aromas of papaya and soft apricot with a palate balanced with citrus, all wrapped up in a bed of haze.",
+            "volume": "440ml",
+            "price": 3.90,
+            "category": 2,
+            "rating": 4.4,
+            "image_url": "https://images.squarespace-cdn.com/content/v1/5743328322482e6a525abbcc/1695636600264-4UDY75OEBH5B6IVQCUDW/Velodrome.jpg?format=1500w",
+            "image": "velodrome.png"
+        }
+    }
+]
