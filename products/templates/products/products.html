@@ -42,6 +42,7 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                    <p class="mb-0 text-left">{{ product.brewery }}</p>
                                     <p class="mb-0 text-left">{{ product.abv }}% ABV</p>
                                     {% if product.rating %}
                                     <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
@@ -56,24 +57,24 @@
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:1 %}
-                <div class="col-12 d-sm-none mb-5">
-                    <hr>
-                </div>
+                    <div class="col-12 d-sm-none mb-5">
+                        <hr>
+                    </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
-                </div>
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <hr>
+                    </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:3 %}
-                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
-                </div>
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <hr>
+                    </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
-                </div>
+                    <div class="col-12 d-none d-xl-block mb-5">
+                        <hr>
+                    </div>
                 {% endif %}
                 {% endfor %}
             </div>
