@@ -19,10 +19,10 @@
                 Beer Types
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Lager</a>
-                <a href="" class="dropdown-item">Ale</a>
-                <a href="" class="dropdown-item">Stourt</a>
-                <a href="" class="dropdown-item">Sour</a>
+                <a href="{% url 'products' %}?category=lager" class="dropdown-item">Lager</a>
+                <a href="{% url 'products' %}?category=ale" class="dropdown-item">Ale</a>
+                <a href="{% url 'products' %}?category=stout" class="dropdown-item">Stout</a>
+                <a href="{% url 'products' %}?category=sour" class="dropdown-item">Sour</a>
             </div>
         </li>
 
@@ -32,10 +32,10 @@
                 Breweries
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Brewdog</a>
-                <a href="" class="dropdown-item">Brew Toon</a>
-                <a href="" class="dropdown-item">Fierce</a>
-                <a href="" class="dropdown-item">Six° North</a>
+                <a href="{% url 'products' %}?category=brewdog" class="dropdown-item">Brewdog</a>
+                <a href="{% url 'products' %}?category=brewtoon" class="dropdown-item">Brew Toon</a>
+                <a href="{% url 'products' %}?category=fierce" class="dropdown-item">Fierce</a>
+                <a href="{% url 'products' %}?category=six_degrees_north" class="dropdown-item">Six° North</a>
             </div>
         </li>
     </ul>
