@@ -75,7 +75,7 @@ def product_detail(request, product_id):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
-        message.error(request, 'Sorry only Store Admin can do this.')
+        messages.error(request, 'Sorry only Store Admin can do this.')
         return redirect(reverse('home'))
     
     if request.method == 'POST':
@@ -100,7 +100,7 @@ def add_product(request):
 def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_superuser:
-        message.error(request, 'Sorry only Store Admin can do this.')
+        messages.error(request, 'Sorry only Store Admin can do this.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -126,12 +126,12 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-        """ Delete a product from the store """
-        if not request.user.is_superuser:
-        message.error(request, 'Sorry only Store Admin can do this.')
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only Store Admin can do this.')
         return redirect(reverse('home'))
-        
-        product = get_object_or_404(Product, pk=product_id)
-        product.delete()
-        messages.success(request, 'Product deleted!')
-        return redirect(reverse('products'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
