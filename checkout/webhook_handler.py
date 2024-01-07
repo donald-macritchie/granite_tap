@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-import stripe
 
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -32,7 +31,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )
+        )        
 
     def handle_event(self, event):
         """
@@ -58,16 +57,17 @@ class StripeWH_Handler:
 
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)
+
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
 
+        # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
-        if username != "AnonymousUser":
+        if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
@@ -77,8 +77,7 @@ class StripeWH_Handler:
                 profile.default_street_address1 = shipping_details.address.line1
                 profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
-                prfile.save()
-
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -135,7 +134,12 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        pass
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data['quantity'],
+                        )
+                        order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
