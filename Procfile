@@ -1,0 +1,1 @@
+web: gunicorn granite_tap.wsgi:application
