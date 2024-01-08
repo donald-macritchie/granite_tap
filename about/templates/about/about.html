@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- {% block extra_css %}
-<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
-{% endblock %} -->
 
 {% block page_header %}
 <div class="container header-container">
@@ -35,20 +32,36 @@
             </div>
         </div>
         <!-- FAQs -->
+        <div class="row mb-5">
+            <div class="col text-center mt-3">
+                <hr>
+                <h2 class="logo-font mb-4">Frequently Asked Questions</h2>
+                <hr>
+            </div>
+        </div>
         <div class="row">
-            <div class="col mt-3 my-3">
-                {% for content in about_content %}
-                <div class="mb-4">
-                    <h3>{{ content.title }}</h3>
-                    <p>{{ content.content | safe }}</p>
+            <div class="col-md-8 offset-md-2 text-center text-black mt-3">
+                <div id="accordion">
+                    {% for faq in faqs %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{ forloop.counter }}">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-outline-black text-black" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}"
+                                        aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                                        {{ faq.question }}
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}"
+                                data-parent="#accordion">
+                                <div class="card-body">
+                                    {{ faq.answer | safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
 {% endblock %}
-
-    <!-- {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-    {% endblock %} -->
