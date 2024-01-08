@@ -17,10 +17,32 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col text-center mt-3">
                 <hr>
-                <h2 class="logo-font mb-4">Wish List</h2>
+                <h2 class="logo-font mb-4">About Us</h2>
                 <hr>
+            </div>
+        </div>
+        <!-- About section -->
+        <div class="row">
+            <div class="col mt-3 my-3">
+                {% for content in about_content %}
+                    <div class="mb-4">
+                        <h3>{{ content.title }}</h3>
+                        <p>{{ content.content | safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- FAQs -->
+        <div class="row">
+            <div class="col mt-3 my-3">
+                {% for content in about_content %}
+                <div class="mb-4">
+                    <h3>{{ content.title }}</h3>
+                    <p>{{ content.content | safe }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
