@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category
+from .models import Product, Category, RelatedProduct
 from .forms import ProductForm
 
 # Create your views here.
@@ -65,8 +65,15 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    # Get the categories for the current product
+    product_categories = product.categories.all()
+
+    # Filter related products based on categories (1, 2, 3, 4)
+    related_products = Product.objects.filter(categories__in=product_categories).exclude(id=product.id)[:3]
+
     context = {
         'product': product,
+        'related_products': related_products,
     }
 
     return render(request, 'products/product_detail.html', context)

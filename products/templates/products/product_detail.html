@@ -14,19 +14,6 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Product Image -->
-            <!-- <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
-                    {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                    {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                    {% endif %}
-                </div>
-            </div> -->
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if product.image %}
@@ -116,6 +103,60 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Related Products -->
+        <div class="row my-5">
+            <div class="col-12 col-lg-8">
+                {% if related_products %}
+                    <h2>Related Products</h2>
+                    <div class="row related-products">
+                        {% for related_product in related_products %}
+                            <div class="col-lg-4 mb-3">
+                                <div class="card">
+                                    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                                        <div class="image-container my-5">
+                                            {% if product.image %}
+                                                <a href="{% url 'product_detail' related_product.id %}">
+                                                    <img class="card-img-top img-fluid" src="{{ related_product.image.url }}" alt="{{ related_product.name }}">
+                                                </a>
+                                            {% else %}
+                                                <a href="{% url 'product_detail' related_product.id %}">
+                                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ related_product.name }}">
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href=""></a>
+                                        <h5 class="card-title">{{ related_product.name }}</h5>
+                                        <p class="lead mb-0 text-left font-weight-bold">£{{ related_product.price }}</p>
+                                        <p class="mb-0 text-left">{{ related_product.brewery }}</p>
+                                        <p class="mb-0 text-left">{{ related_product.abv }}% ABV</p>
+                                        {% if product.categories.all %}
+                                        <p class="small mt-1 mb-0">
+                                            <!-- Lists the beer type categories only -->
+                                            {% for category in product.categories.all %}
+                                            {% if category.id <= 4 %} <a class="text-muted" href="{% url 'products' %}?category={{ category.name }}">
+                                                <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
+                                                </a>
+                                                {% endif %}
+                                                {% endfor %}
+                                        </p>
+                                        {% endif %}
+                                        {% if product.rating %}
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                                            5</small>
+                                        {% else %}
+                                        <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

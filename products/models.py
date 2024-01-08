@@ -15,6 +15,11 @@ class Category(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+class RelatedProduct(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='related_products')
+    
+    def __str__(self):
+        return f'Related product for {self.product.name}'
 
 class Product(models.Model):
     categories = models.ManyToManyField(Category)
@@ -29,6 +34,7 @@ class Product(models.Model):
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    related_products_list = models.ForeignKey(RelatedProduct, on_delete=models.CASCADE, null=True, blank=True, related_name='related_products')
 
     def __str__(self):
         return self.name

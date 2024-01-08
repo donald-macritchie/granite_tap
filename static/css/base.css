@@ -188,6 +188,10 @@ footer {
     /* height: 100px; */
 }
 
+.related-products {
+    justify-content: center;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
