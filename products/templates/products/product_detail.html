@@ -107,15 +107,15 @@
         </div>
         <hr>
         <!-- Related Products -->
-        <div class="row my-5">
+        <div class="row my-5 justify-content-center">
             <div class="col-12 col-lg-8">
                 {% if related_products %}
-                    <h2>Related Products</h2>
-                    <div class="row related-products">
+                    <h3>You may also like...</h3>
+                    <div class="row justify-content-center">
                         {% for related_product in related_products %}
                             <div class="col-lg-4 mb-3">
                                 <div class="card">
-                                    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                                    <div class="col-6 mx-auto">
                                         <div class="image-container my-5">
                                             {% if product.image %}
                                                 <a href="{% url 'product_detail' related_product.id %}">

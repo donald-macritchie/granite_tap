@@ -69,7 +69,7 @@ def product_detail(request, product_id):
     product_categories = product.categories.all()
 
     # Filter related products based on categories (1, 2, 3, 4)
-    related_products = Product.objects.filter(categories__in=product_categories).exclude(id=product.id)[:3]
+    related_products = Product.objects.filter(categories__in=product_categories).exclude(id=product.id)[:2]
 
     context = {
         'product': product,
