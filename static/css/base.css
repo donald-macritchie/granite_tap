@@ -180,6 +180,14 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* height: 100px; */
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

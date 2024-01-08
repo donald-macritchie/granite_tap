@@ -32,7 +32,7 @@
             </div>
         </div>
         <!-- FAQs -->
-        <div class="row">
+        <div class="row mb-3">
             <div class="col text-center mt-3">
                 <hr>
                 <h2 class="logo-font mb-4">Frequently Asked Questions</h2>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8 offset-md-2 text-center text-black mt-3">
+            <div class="col-md-8 offset-md-2 text-center text-black my-3">
                 <div id="accordion">
                     {% for faq in faqs %}
                         <div class="card">
@@ -65,20 +65,20 @@
         </div>
 
         <!-- Newsletter Signup Section -->
-        <div class="row">
-            <div class="col text-center mt-3">
+        <div class="row mb-5">
+            <div class="col text-center my-3">
                 <hr>
                 <h2 class="logo-font mb-4">Newsletter Signup</h2>
                 <hr>
-                <!-- Add your newsletter signup form or link here -->
                 <p>Subscribe to our newsletter to receive updates and special offers!</p>
-                <!-- Example form (replace with your actual implementation) -->
                 <form action="" method="post">
                     {% csrf_token %}
-                    <!-- Your form fields go here -->
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
         </div>
+        
     </div>
+
+
 {% endblock %}
