@@ -184,8 +184,9 @@ input[name='q']::placeholder {
     min-height: 600px;
 }
 
-.wishlist {
-    padding-bottom: 200px;
+.wishlist,
+.product-row {
+    padding-bottom: 100px;
 }
 
 footer {
