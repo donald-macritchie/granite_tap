@@ -184,6 +184,10 @@ input[name='q']::placeholder {
     min-height: 600px;
 }
 
+.wishlist {
+    padding-bottom: 200px;
+}
+
 footer {
     position: fixed;
     bottom: 0;

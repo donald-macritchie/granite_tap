@@ -20,24 +20,76 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row wishlist">
                 {% if wishlist_items %}
-                    <ul>
-                        {% for product in wishlist_items %}
-                            <li>
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
-                                <p>{{ product.name }} - £{{ product.price }}</p>
-                                <!-- Add more details if needed -->
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    {% for product in wishlist_items %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid custom-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                            alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ product.name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                            <p class="mb-0 text-left">{{ product.brewery }}</p>
+                                            <p class="mb-0 text-left">{{ product.abv }}% ABV</p>
+                                            {% if product.categories.all %}
+                                            <p class="small mt-1 mb-0">
+                                                <!-- Lists the beer type categories only -->
+                                                {% for category in product.categories.all %}
+                                                    {% if category.id <= 4 %} <a class="text-muted" href="{% url 'products' %}?category={{ category.name }}">
+                                                        <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
+                                                        </a>
+                                                    {% endif %} 
+                                                {% endfor %}
+                                            </p>
+                                            {% endif %}
+                                            {% if product.rating %}
+                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                                                    5</small>
+                                            {% else %}
+                                                <small class="text-muted">No Rating</small>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if forloop.counter|divisibleby:1 %}
+                            <div class="col-12 d-sm-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:3 %}
+                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:4 %}
+                            <div class="col-12 d-none d-xl-block mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 {% else %}
                     <p>Your wishlist is empty.</p>
                 {% endif %}
-            </div>
         </div>
     </div>
 {% endblock %}
