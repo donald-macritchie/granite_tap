@@ -33,7 +33,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['8000-donald-macritchie-granit-nf6pbo5vyd.us2.codeanyapp.com', 'granite-tap-8e0d9d617920.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-donaldmacrit-granitetap-kh158kii1ld.ws-eu107.gitpod.io', 'granite-tap-8e0d9d617920.herokuapp.com', 'localhost']
 
 
 # Application definition
