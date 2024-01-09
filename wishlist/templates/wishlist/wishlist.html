@@ -20,5 +20,24 @@
                 <hr>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                {% if wishlist_items %}
+                    <ul>
+                        {% for product in wishlist_items %}
+                            <li>
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                                <p>{{ product.name }} - £{{ product.price }}</p>
+                                <!-- Add more details if needed -->
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Your wishlist is empty.</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}
