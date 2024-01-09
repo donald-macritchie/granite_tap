@@ -180,6 +180,10 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
+.ymal-container {
+    min-height: 600px;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -190,23 +194,11 @@ footer {
 /* MailChimp */
 #mc_embed_signup {
     background: #fff;
-    false;
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
     width: 600px;
 }
 
-/* #mc_embed_signup form {
-    display: block;
-    position: relative;
-    text-align: left;
-    margin: 20px;
-} */
-
-#newsletter {
-    margin-bottom: 500px;
-
-}
 
 /* -------------------------------- Media Queries */
 
