@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row bag-row">
             <div class="col">
                 {% if bag_items %}
                     <div class="table-responsive rounded">
@@ -38,7 +38,7 @@
 
                             {% for item in bag_items %}
                                 <tr>
-                                    <td class="p-3 w-25">
+                                    <td class="p-3 w-25 bag-image">
                                         {% if item.product.image %}
                                             <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                         {% else %}

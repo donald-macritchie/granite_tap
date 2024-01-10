@@ -5,6 +5,8 @@ class WishlistAdmin(admin.ModelAdmin):
     list_display = ('user', 'display_product', 'date_added')
 
     def display_product(self, obj):
-        return obj.product.name
+        return ', '.join([product.name for product in obj.products.all()])
+
+    display_product.short_description = 'Products'
 
 admin.site.register(Wishlist, WishlistAdmin)
