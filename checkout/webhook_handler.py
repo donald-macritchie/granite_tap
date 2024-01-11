@@ -7,6 +7,7 @@ from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
 
+import stripe
 import json
 import time
 
@@ -55,8 +56,9 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details
+        billing_details = stripe_charge.billing_details # updated
         shipping_details = intent.shipping
+        grand_total = round(stripe_charge.amount / 100, 2) # updated
 
 
         # Clean data in the shipping details
@@ -131,13 +133,6 @@ class StripeWH_Handler:
                             order=order,
                             product=product,
                             quantity=item_data,
-                        )
-                        order_line_item.save()
-                    else:
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data['quantity'],
                         )
                         order_line_item.save()
             except Exception as e:
