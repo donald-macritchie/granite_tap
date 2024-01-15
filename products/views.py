@@ -16,6 +16,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    brewery = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -36,8 +37,13 @@ def all_products(request):
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products.filter(categories__name__in=categories)
+            products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+
+        if 'brewery' in request.GET:
+            brewery = request.GET['brewery']
+            products = products.filter(brewery__iexact=brewery)
+            
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -47,6 +53,8 @@ def all_products(request):
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+
+    print(f"Filtered Products: {products}")
 
     current_sorting = f'{sort}_{direction}'
 
@@ -65,11 +73,11 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    # Get the categories for the current product
-    product_categories = product.categories.all()
+    # Get the category for the current product
+    product_category = product.category
 
-    # Filter related products based on categories (1, 2, 3, 4)
-    related_products = Product.objects.filter(categories__in=product_categories).exclude(id=product.id)[:2]
+    # Filter related products based on the category
+    related_products = Product.objects.filter(category=product_category).exclude(id=product.id)[:2]
 
     context = {
         'product': product,
@@ -77,6 +85,8 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
 
 @login_required
 def add_product(request):

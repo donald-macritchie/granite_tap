@@ -179,6 +179,7 @@ input[name='q']::placeholder {
     max-height: 75%;
 }
 
+
 .bag-notification-wrapper {
     height: 100px;
     overflow-x: hidden;

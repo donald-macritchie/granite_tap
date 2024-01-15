@@ -8,6 +8,7 @@
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=desc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -31,10 +32,10 @@
                 Breweries
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="{% url 'products' %}?category=brewdog" class="dropdown-item">Brewdog</a>
-                <a href="{% url 'products' %}?category=brewtoon" class="dropdown-item">Brew Toon</a>
-                <a href="{% url 'products' %}?category=fierce" class="dropdown-item">Fierce</a>
-                <a href="{% url 'products' %}?category=six_degrees_north" class="dropdown-item">Six° North</a>
+                <a href="{% url 'products' %}?brewery=brewdog" class="dropdown-item">Brewdog</a>
+                <a href="{% url 'products' %}?brewery=brew%20toon" class="dropdown-item">Brew Toon</a>
+                <a href="{% url 'products' %}?brewery=fierce" class="dropdown-item">Fierce</a>
+                <a href="{% url 'products' %}?brewery=six°%20north" class="dropdown-item">Six° North</a>
             </div>
         </li>
     </ul>

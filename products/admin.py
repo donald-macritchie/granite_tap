@@ -1,18 +1,13 @@
 from django.contrib import admin
 from .models import Product, Category
 
-# Register your models here.
-
-from django.contrib import admin
-from .models import Product, Category
-
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
+        'category',
         'brewery',
         'abv',
-        'display_categories',
         'price',
         'rating',
         'image',
@@ -20,10 +15,6 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
-    def display_categories(self, obj):
-        return ', '.join(category.name for category in obj.categories.all())
-
-    display_categories.short_description = 'Categories'
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

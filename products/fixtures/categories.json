@@ -30,37 +30,5 @@
             "name": "sour",
             "friendly_name": "Sour"
         }
-    },
-    {
-        "pk": 5,
-        "model": "products.category",
-        "fields": {
-            "name": "brewdog",
-            "friendly_name": "Brewdog"
-        }
-    },
-    {
-        "pk": 6,
-        "model": "products.category",
-        "fields": {
-            "name": "brewtoon",
-            "friendly_name": "Brew Toon"
-        }
-    },
-    {
-        "pk": 7,
-        "model": "products.category",
-        "fields": {
-            "name": "fierce",
-            "friendly_name": "Fierce"
-        }
-    },
-    {
-        "pk": 8,
-        "model": "products.category",
-        "fields": {
-            "name": "six_degrees_north",
-            "friendly_name": "Six° North"
-        }
     }
 ]

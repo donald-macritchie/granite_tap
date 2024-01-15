@@ -22,9 +22,9 @@
         </div>
         <!-- About section -->
         <div class="row">
-            <div class="col mt-3 mb-5">
+            <div class="col-12 col-lg-8 mt-3 mb-5 mx-auto text-center">
                 {% for content in about_content %}
-                    <div class="mb-4">
+                    <div class="mb-4 py-2">
                         <h3>{{ content.title }}</h3>
                         <p>{{ content.content | safe }}</p>
                     </div>

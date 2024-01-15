@@ -22,12 +22,11 @@ class RelatedProduct(models.Model):
         return f'Related product for {self.product.name}'
 
 class Product(models.Model):
-    categories = models.ManyToManyField(Category)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     brewery = models.CharField(max_length=254)
     abv = models.DecimalField(max_digits=6, decimal_places=2)
-    beer_type = models.CharField(max_length=254)
     description = models.TextField()
     volume = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
