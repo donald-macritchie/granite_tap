@@ -6,6 +6,8 @@ from django.db.models.functions import Lower
 from .models import Product, Category, RelatedProduct
 from .forms import ProductForm
 
+import random
+
 # Create your views here.
 
 def all_products(request):
@@ -54,8 +56,6 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
-    print(f"Filtered Products: {products}")
-
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -73,11 +73,11 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    # Get the category for the current product
+
     product_category = product.category
 
-    # Filter related products based on the category
-    related_products = Product.objects.filter(category=product_category).exclude(id=product.id)[:2]
+
+    related_products = Product.objects.filter(category=product_category).exclude(id=product.id).order_by('?')[:2]
 
     context = {
         'product': product,
