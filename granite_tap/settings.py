@@ -31,11 +31,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = 'DEVELOPMENT'
 
 
 
-ALLOWED_HOSTS = ['8000-donaldmacrit-granitetap-kh158kii1ld.ws-eu107.gitpod.io', 'granite-tap-8e0d9d617920.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-donaldmacrit-granitetap-kh158kii1ld.ws-eu107.gitpod.io', 'granite-tap-d7fc252cb5b2.herokuapp.com', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ["https://8000-donaldmacrit-granitetap-kh158kii1ld.ws-eu107.gitpod.io"]
 
