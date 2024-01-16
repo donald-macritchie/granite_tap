@@ -190,12 +190,7 @@ input[name='q']::placeholder {
     min-height: 600px;
 }
 
-.wishlist,
-.product-row,
-.bag-row,
-.profile-row,
-.checkout-row,
-.checkout-success-row {
+.padding100 {
     padding-bottom: 100px;
 }
 
