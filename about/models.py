@@ -2,6 +2,10 @@ from django.db import models
 
 
 class About(models.Model):
+
+    class Meta:
+        ordering = ['-title']
+
     title = models.CharField(max_length=254)
     content = models.TextField()
 
