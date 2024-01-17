@@ -35,7 +35,7 @@ def bag_contents(request):
     delivery = calculate_delivery_cost(bag_items)
     free_delivery_delta = max(settings.FREE_DELIVERY_THRESHOLD - total, Decimal('0'))
 
-    grand_total = delivery + total
+    grand_total = delivery + total if bag_items else Decimal('0.00')
 
     context = {
         'bag_items': bag_items,
