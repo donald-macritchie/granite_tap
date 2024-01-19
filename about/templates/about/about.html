@@ -115,10 +115,10 @@
     </div>
 
     <!-- Contact Form -->
-    <div class="row justify-content-center mb-5 py-5" id="contact">
+    <div class="row justify-content-center py-5" id="contact">
         <div class="col-12 col-lg-8 text-center mt-3">
             <hr>
-            <h2 class="logo-font mb-4">Contact Us</h2>
+            <h2 class="logo-font">Contact Us</h2>
             <hr>
         </div>
     </div>
@@ -136,4 +136,24 @@
 </div>
 
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $(document).ready(function() {
+            function setSectionPadding() {
+                var headerHeight = $('header').outerHeight() || 0;
+                var deliveryBannerHeight = $('#delivery-banner').outerHeight() || 0;
+                var totalPadding = headerHeight + deliveryBannerHeight - 80;
+                $('#newsletter, #contact').css('padding-top', totalPadding);
+            }
+            setSectionPadding();
+
+            $(window).resize(function() {
+                setSectionPadding();
+            });
+        });
+    </script>
+    
 {% endblock %}
