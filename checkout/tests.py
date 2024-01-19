@@ -56,7 +56,6 @@ class CheckoutModelTests(TestCase):
             stripe_pid='testpid'
         )
 
-        # Create a line item associated with the order
         line_item = OrderLineItem.objects.create(
             order=order,
             product=self.product,
@@ -83,7 +82,6 @@ class CheckoutModelTests(TestCase):
             stripe_pid='testpid'
         )
 
-        # Create line items associated with the order
         line_item1 = OrderLineItem.objects.create(
             order=order,
             product=self.product,
