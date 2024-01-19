@@ -114,6 +114,37 @@
         
             </div>
         </div>
+
+        <!-- Contact Form -->
+        <section id="contact" class="py-5">
+            <div class="row mb-5">
+                <div class="col text-center mt-3">
+                    <hr>
+                    <h2 class="logo-font mb-4">Contact Us</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 mx-auto text-center">
+                    {% if contact_info %}
+                        <p>Email: {{ contact_info.email }}</p>
+                        {% if contact_info.phone_number %}
+                            <p>Phone: {{ contact_info.phone_number }}</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 mx-auto text-center">
+                    <!-- Your existing contact form or create a new one -->
+                    <form method="post" action="{% url 'about_page' %}">
+                        {% csrf_token %}
+                        {{ contact_form|crispy }}
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
         
     </div>
 

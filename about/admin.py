@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About, FAQ, ContactInfo
+from .models import About, FAQ, Contact
 
 class AboutAdmin(admin.ModelAdmin):
     list_display = ('title',)
@@ -9,7 +9,7 @@ class FAQAdmin(admin.ModelAdmin):
     list_display = ('question',)
     search_fields = ('question',)
 
-class ContactInfoAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'email',
@@ -19,4 +19,4 @@ class ContactInfoAdmin(admin.ModelAdmin):
 
 admin.site.register(About, AboutAdmin)
 admin.site.register(FAQ, FAQAdmin)
-admin.site.register(ContactInfo, ContactInfoAdmin)
+admin.site.register(Contact, ContactAdmin)
