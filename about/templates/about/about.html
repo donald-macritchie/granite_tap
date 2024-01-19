@@ -11,130 +11,129 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col text-center mt-3">
-                <hr>
-                <h2 class="logo-font mb-4">About Us</h2>
-                <hr>
-            </div>
+<div class="overlay"></div>
+<div class="container">
+    <div class="row mb-5">
+        <div class="col text-center mt-3">
+            <hr>
+            <h2 class="logo-font mb-4">About Us</h2>
+            <hr>
         </div>
-        <!-- About section -->
-        <div class="row">
-            <div class="col-12 col-lg-8 mt-3 mb-5 mx-auto text-center">
-                {% for content in about_content %}
-                    <div class="mb-4 py-2">
-                        <h3>{{ content.title | safe }}</h3>
-                        <p> {{ content.content | safe }} </p>
+    </div>
+    <!-- About section -->
+    <div class="row">
+        <div class="col-12 col-lg-8 mt-3 mb-5 mx-auto text-center">
+            {% for content in about_content %}
+            <div class="mb-4 py-2">
+                <h3>{{ content.title | safe }}</h3>
+                <p> {{ content.content | safe }} </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- FAQs -->
+    <div class="row justify-content-center mb-3">
+        <div class="col-12 col-lg-8 text-center mt-3">
+            <hr>
+            <h2 class="logo-font mb-4">Frequently Asked Questions</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto text-center text-black my-3">
+            <div id="accordion">
+                {% for faq in faqs %}
+                <div class="card border-0">
+                    <div class="card-header bg-transparent" id="heading{{ forloop.counter }}">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link btn-outline-black text-black" data-toggle="collapse"
+                                data-target="#collapse{{ forloop.counter }}" aria-expanded="true"
+                                aria-controls="collapse{{ forloop.counter }}">
+                                {{ faq.question }}
+                            </button>
+                        </h5>
                     </div>
+                    <div id="collapse{{ forloop.counter }}" class="collapse"
+                        aria-labelledby="heading{{ forloop.counter }}" data-parent="#accordion">
+                        <div class="card-body">
+                            {{ faq.answer | safe }}
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
-        <!-- FAQs -->
-        <div class="row mb-3">
-            <div class="col text-center mt-3">
-                <hr>
-                <h2 class="logo-font mb-4">Frequently Asked Questions</h2>
-                <hr>
-            </div>
+    </div>
+
+    <!-- Newsletter Signup Section -->
+    <div class="row justify-content-center" id="newsletter">
+        <div class="col-12 col-lg-8 text-center my-3 py-5">
+            <hr>
+            <h2 class="logo-font mb-4">Sign up to our Newsletter!</h2>
+            <hr>
+            <p class="mb-5">To get all the latest news and exclusive offers, sign up to our newsletter!</p>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-6 mx-auto text-center text-black my-3">
-                <div id="accordion">
-                    {% for faq in faqs %}
-                        <div class="card border-0">
-                            <div class="card-header bg-transparent" id="heading{{ forloop.counter }}">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-outline-black text-black" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}"
-                                        aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
-                                        {{ faq.question }}
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    {{ faq.answer | safe }}
-                                </div>
+        <div id="mc_embed_shell">
+            <div id="mc_embed_signup" class="mx-auto">
+                <form
+                    action="https://outlook.us21.list-manage.com/subscribe/post?u=c47578df5ca7605e6b0c57160&amp;id=59119f2c40&amp;f_id=00d0dee6f0"
+                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                    target="_blank">
+                    <div id="mc_embed_signup_scroll">
+                        <h2>Subscribe</h2>
+                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                        <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span
+                                    class="asterisk">*</span></label><input type="email" name="EMAIL"
+                                class="required email" id="mce-EMAIL" required="" value=""></div>
+                        <div id="mce-responses" class="clear foot">
+                            <div class="response" id="mce-error-response" style="display: none;"></div>
+                            <div class="response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                            /* real people should not fill this in and expect good things - do not remove this or risk
+                            form bot signups */
+                            <input type="text" name="b_c47578df5ca7605e6b0c57160_59119f2c40" tabindex="-1" value="">
+                        </div>
+                        <div class="optionalParent">
+                            <div class="clear foot">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
+                                    value="Subscribe">
+                                <p style="margin: 0px auto;"><a href="http://eepurl.com/iF65K6"
+                                        title="Mailchimp - email marketing made easy and fun"><span
+                                            style="display: inline-block; background-color: transparent; border-radius: 4px;"><img
+                                                class="refferal_badge"
+                                                src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                                                alt="Intuit Mailchimp"
+                                                style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
+                                </p>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
-        <!-- Newsletter Signup Section -->
-        <div class="row py-5 justify-content-center newsletter">
-            <div class="col-12 col-lg-8 text-center my-3">
-                <div id="newsletter-header">
-                    <h3 class="my-3">Sign Up to our Newsletter!</h3>
-                    <p class="mb-5">To get all the latest news and exclusive offers, sign up to our newsletter!</p>
-                </div>
-                <div id="mc_embed_shell">        
-                    <div id="mc_embed_signup" class="mx-auto">
-                        <form
-                            action="https://outlook.us21.list-manage.com/subscribe/post?u=c47578df5ca7605e6b0c57160&amp;id=59119f2c40&amp;f_id=00d0dee6f0"
-                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                            target="_blank">
-                            <div id="mc_embed_signup_scroll">
-                                <h2>Subscribe</h2>
-                                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                                <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span
-                                            class="asterisk">*</span></label><input type="email" name="EMAIL"
-                                        class="required email" id="mce-EMAIL" required="" value=""></div>
-                                <div id="mce-responses" class="clear foot">
-                                    <div class="response" id="mce-error-response" style="display: none;"></div>
-                                    <div class="response" id="mce-success-response" style="display: none;"></div>
-                                </div>
-                                <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                                    /* real people should not fill this in and expect good things - do not remove this or risk
-                                    form bot signups */
-                                    <input type="text" name="b_c47578df5ca7605e6b0c57160_59119f2c40" tabindex="-1" value="">
-                                </div>
-                                <div class="optionalParent">
-                                    <div class="clear foot">
-                                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
-                                            value="Subscribe">
-                                        <p style="margin: 0px auto;"><a href="http://eepurl.com/iF65K6"
-                                                title="Mailchimp - email marketing made easy and fun"><span
-                                                    style="display: inline-block; background-color: transparent; border-radius: 4px;"><img
-                                                        class="refferal_badge"
-                                                        src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
-                                                        alt="Intuit Mailchimp"
-                                                        style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
                     </div>
-                </div>
-        
-        
-            </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="row mb-5 py-5" id="contact">
-            <div class="col text-center mt-3">
-                <hr>
-                <h2 class="logo-font mb-4">Contact Us</h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-8 mx-auto text-left padding100">
-                <h5 class="text-center">If you have any questions please feel free to get in touch.</h5>
-                <form method="post" action="{% url 'about_page' %}">
-                    {% csrf_token %}
-                    {{ contact_form|crispy }}
-                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
-        
     </div>
+
+    <!-- Contact Form -->
+    <div class="row justify-content-center mb-5 py-5" id="contact">
+        <div class="col-12 col-lg-8 text-center mt-3">
+            <hr>
+            <h2 class="logo-font mb-4">Contact Us</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-left padding100">
+            <h5 class="text-center">If you have any questions please feel free to get in touch.</h5>
+            <form method="post" action="{% url 'about_page' %}">
+                {% csrf_token %}
+                {{ contact_form|crispy }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
 
 
 {% endblock %}
