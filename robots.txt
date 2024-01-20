@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /accounts/
+Sitemap: https://granite-tap-d7fc252cb5b2.herokuapp.com/sitemap.xml
