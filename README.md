@@ -334,5 +334,62 @@ CONTENTS
 - This gives users the chance to view products of the same beer type and explore other breweries.
 - The selection has has been randomised so everytime a user views a product, the related products will display random products of the same beer type.
 
+---
+
+### Shopping Bag
+
+- Once users have completed viewing products and adding them to the bag, they can view their selections in full by clicking on the shopping bag icon or via the add to bag success message as documented above.
+
+![This is an image os the shopping bag](static/screenshots/30_shopping_bag.png)
+
+- In the shopping bag, users will have a view of the products they have added.
+- Included information:
+    - Product Info
+        - Product Image
+        - Product Name
+        - Product SKU Code
+    - Product Price
+    - Quantity
+    - Subtotal
+
+#### Product Info
+
+![This is an image of the product info in the shopping bag](static/screenshots/31_shopping_bag_product_info.png)
+
+#### Product Price
+
+![This is an image of the product price in the shopping bag](static/screenshots/32_shopping_bag_product_price.png)
+
+#### Quantity
+
+![This is an image of the Quantity input in the shopping bag](static/screenshots/33_shopping_bag_quantity.png)
+
+- When in the shopping bag, users have the oppotunity to adjust the quantity of the number of each product in the shopping bag.
+- Once the user has changed the quantity in the Quantity input, the "Update" button will action this change.
+- If the user wishes, they can also remove the product from the basket entirely by using the "Remove" button.
+
+#### SubTotal
+
+![This is an image of the product subtotal in the shopping bag](static/screenshots/34_shopping_bag_lineitem_subtotal.png)
+
+- The subtotal details the total of the specific line item.
+
+#### Grand Total Details
+
+![this is an image of the grandtotl details in the shopping bag](static/screenshots/35_shopping_bag_grand_total.png)
+
+- At the bottom of the shopping bag, information display to the user:
+    - Bag Total
+    - Delivery Cost
+    - Grand Total
+    - A message informing the user how much more they need to spend if they want to take advantage of free delivery.
+
+##### Keep Shopping Button
+
+- The keep shopping button will redirect the user back to the products page if they wish to continue to browse before checking out.
+
+##### Secure Checkout
+
+- The Secure Checkout button will direct the user to the Checkout page to complete their purchase.
 
 
