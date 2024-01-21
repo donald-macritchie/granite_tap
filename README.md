@@ -686,6 +686,8 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 - As a **SITE ADMIN** I can **HAVE A FACEBOOK BUSINESS PAGE** so that **I CAN EXTEND MY POTENTIAL BUSINESS FURTHER**
 - As a **SITE USER** I can **SIGN UP TO A NEWSLETTER** so that **I CAN KEEP UP TO DAYTE WITH THE LATEST PRODUCTS AND INFORMATION FROM THE SITE**
 
+---
+
 ### Design
 
 #### Colour Scheme
@@ -704,5 +706,64 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 
 #### Font
 
-- The font used throughout the site is Victor Mono. This was imported from Google fonts. Sans-serif has been used as a back up font incase of any import issues.
+- The font used throughout the site is [Victor Mono](https://fonts.google.com/specimen/Victor+Mono). This was imported from Google fonts. Sans-serif has been used as a back up font incase of any import issues.
 
+---
+
+### WireFrames
+
+Wireframes were created using [Figma's](https://www.figma.com/) online wireframe service.
+
+<details>
+<summary>Home </summary>
+
+![homepage wireframe](static/screenshots/60_WF_home.png)
+</details>
+
+<details>
+<summary>Products Page</summary>
+
+![products page wireframe](static/screenshots/61_WF_products_page.png)
+</details>
+
+<details>
+<summary>Product Detail</summary>
+
+![products details wireframe](static/screenshots/62_WF_product_detail.png)
+</details>
+
+<details>
+<summary>About Page</summary>
+
+![about page wireframe](static/screenshots/63_WF_about.png)
+</details>
+
+<details>
+<summary>Shopping Bag</summary>
+
+![shopping bag page wireframe](static/screenshots/64_WF_shopping_bag.png)
+</details>
+
+<details>
+<summary>Checkout</summary>
+
+![checkout page wireframe](static/screenshots/65_WF_checkout.png)
+</details>
+
+<details>
+<summary>Order Confirmation</summary>
+
+![order confirmation page wireframe](static/screenshots/66_WF_order_confirmation.png)
+</details>
+
+<details>
+<summary>Profile</summary>
+
+![profile page wireframe](static/screenshots/67_WF_profile.png)
+</details>
+
+<details>
+<summary>Wishlist</summary>
+
+![wishlist page wireframe](static/screenshots/68_WF_wishlist.png)
+</details>
