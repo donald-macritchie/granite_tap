@@ -767,3 +767,29 @@ Wireframes were created using [Figma's](https://www.figma.com/) online wireframe
 
 ![wishlist page wireframe](static/screenshots/68_WF_wishlist.png)
 </details>
+
+---
+
+### Defensive Design
+
+#### User Authentication
+
+- Using Django allauth, user authentication has been implemented across the site. 
+- Site users can log in and out by using either their username or email address and password they create at the sign up stage.
+- Site Admin users have full site access.
+- Site Admin users can access the admin panels as well as adding, editing and deleting products. 
+- To limit non admin users from accessing unauthorised areas of the site, toast messagea have been implemented.
+
+![image of unautorised action](static/screenshots/70_unauthorised_action.png)
+
+#### Custom 404
+
+- A custom 404 page has been created for non-existent content
+
+![image of custom 404 page](static/screenshots/69_404_page.png)
+
+#### Form Validation
+
+- All forms across the site have required fields as appropriate and are marked with an asterisk
+- Any incorrect/invalid entries are flagged to the user with an error message.
+
