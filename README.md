@@ -14,7 +14,7 @@ The payment system uses Stripe.
 
 Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252cb5b2.herokuapp.com/)
 
-![Homepage](static/screenshots/1_homepage.png)
+![Image of Am I Responsive](static/screenshots/0_amiresponsive.png)
 
 ---
 
@@ -391,5 +391,141 @@ CONTENTS
 ##### Secure Checkout
 
 - The Secure Checkout button will direct the user to the Checkout page to complete their purchase.
+
+----
+
+### Checkout
+
+![Image of the chekout page](static/screenshots/36_checkout_page.png)
+
+- Completing a purchases can be made through the checkout page. 
+- The checkout page consists of two main features:
+    - User Details
+    - Order Summary
+
+#### User Details
+
+![image of the users details form in checkout page](static/screenshots/37_checkout_user_details.png)
+
+- In this form, users will enter their own personal information:
+    - Name
+    - Email
+    - Address
+- Input fields marked with an asterisk are required and the user will not be able to complete their order without these fields being complete.
+
+![image of the save info check box](static/screenshots/39_checkout_save_Info.png)
+
+- Beneath the user details form is a checkbox to allow the user to opt to save their personal information
+
+#### Order Summary
+
+![image of the order summary on the checkout page](static/screenshots/38_checkout_order_summary.png)
+
+- The order summary displays:
+    - Product count
+    - Item information 
+    - Sub Total
+    - Order Total
+    - Delivery Cost
+    - Grand Total
+
+
+#### Payment - Stripe
+
+![image of the stripe payment input](static/screenshots/40_checkout_payment_input.png)
+
+- The card payment is handled by Stripe.
+- This ensures a secure payment.
+
+![image of invalid card details](static/screenshots/42_checkout_invalid_card.png)
+- Invalid card details will automatically display an error message beneath the card details input.
+
+![image of the complete order button](static/screenshots/41_checkout_complete_order_button.png)
+
+- A warning message appear below the complete order button giving the user one final confimation before completing the order.
+- Once payment details have been entered and the users completes the order, a loading screen overlay will appear indicating to the user that the payment is being processed.
+- Once the payment is complete the Stripe webhook will search the database for the order and confirm that it exists.
+
+***As this site is for eduactional purposes only, please do not enter real debit/credit card details***
+
+***To find out more about stripe payment and how to test, please see [the Stripe documentation](https://stripe.com/docs?locale=en-GB).***
+
+---
+
+### Order Confirmation
+
+![image of the checkout success page](static/screenshots/43_checkout_success.png)
+
+- Upon completion of a successful checkout, the user is redirected to an order confirmation.
+- Here, users will be able to review their order.
+- Once orders are completed, it will be assigned an order number to alow users to distinguish one order from the other. 
+- Users will also receive a confirmation email that is automaticaly generated using Django mail.
+
+---
+
+### My Profile
+
+![image of the my profile page](static/screenshots/44_my_profile.png)
+
+- Users who have signed up to the site will be ale view their own profiles via the my account dropdown in the site header as documented above.
+- The My Profile page consists of two main features:
+    - Default Delivery Infomation
+    - Order History
+
+#### Default Delivery Information
+
+![image of the default delivery informartion](static/screenshots/45_my_profile_delivery_info.png)
+
+- Here, users can enter and update their own delivery information. Unlike in the checkout page, the form consists of only the users delivery details:
+    - Phone Number
+    - Street Address
+    - Town/City
+    - County
+    - Postal Code
+    - Country
+
+- Users can edit this information at anytime and update using the "Update Information" button below the form.
+
+#### Order History
+
+![image of the order history coloumn](static/screenshots/46_order_history.png)
+
+- The order history section gives users a short overview of any previous orders made.
+- Detailed in this overview is:
+    - Order Number
+        - Clickable link to the order summary.
+    - Date the iorder was created.
+    - Items in the order.
+
+![image of previous order page](static/screenshots/47_order_history_order_confirmation.png)
+
+- When the user clicks the order number on the order history section of the profile page, they are redirected to the order confirmation. 
+- There is also a alert messagwe displayed automatically informing the user that this is a past confirmation.
+- Below the order confirmation is a "Back to Profile" button which will redirect the user bcak to the profile page.
+
+### Wishlist
+
+![image of the wishlist page](static/screenshots/48_wishlist.png)
+
+- Users also have access to their own wishlist via the link in the account dropdown.
+- Users can add items to their wishlist via the product detail page as documented above.
+- Within the wishlist page, users can view which items they have added.
+- If the user wishes to purchase the wihslist item, like the products page, the image is a clickable link to the product detail and they can add the item to the shopping bag as normal.
+
+![image of the wishlist items details](static/screenshots/49_wishlist_detail.png)
+
+- Much like the products page, the items within the wishlist have an overview of the product:
+    - Name
+    - Price
+    - ABV
+    - Brewery
+    - Lager
+    - Rating
+- Below the product overview is a "Remove from Wishlist" button. This allows users to remove items from the wishlist if they no longer want or need it in there.
+
+---
+
+### About Page
+
 
 
