@@ -527,5 +527,52 @@ CONTENTS
 
 ### About Page
 
+![image of the about page](static/screenshots/50_about_page.png)
 
+- The About page has been implemented to host several features:
+    - About Us
+    - FAQs
+    - Newsletter Sign Up
+    - Contact Us
+
+#### About Us
+
+- The About Us section gives users more indepth information on what the site is about.
+-  This section includes small paragraphs:
+    - Who We Are?
+    - Our Mission
+    - Join Us on This Tasting Journey
+    - Explore Local Flavours
+    - Convenient Home Delivery
+
+#### FAQs
+
+![image of the FAQs](static/screenshots/51_about_faqs.png)
+
+- The FAQs section gives users a views of answers to common questions they may have.
+
+![iage of the FAQs answer on display](static/screenshots/52_about_faqs_answer.png)
+
+- The FAQs section has been styled using a Bootstrap accordian dropdown, allowing users to reveal and collapse answers as they wish.
+
+#### Sign Up to our Newsletter
+
+![image of the newsletter section](static/screenshots/53_about_newsletter.png)
+
+- A newsletter sign up for has been implemented into the about page.
+- This gives users an opportunity to sign up to the Granite Tap Newsletter so they can receive the latest news regarding Granite Tap and any special offers on.
+- The Newsletter has been implemented using [Mailchimp](https://mailchimp.com/).
+
+#### Contact Us
+
+![image of the contact form](static/screenshots/54_about_contact_form.png)
+
+- A contact form has been included in the about page.
+- Users can submit details such as:
+    - Name
+    - Email
+    - Phone Number (optional)
+    - Their message, question or query
+- If users have any questions or issues, they can submit the contact form which is them posted and stored in the database.
+- Contact queries can be veiwed by the site admin in the Django admin.
 
