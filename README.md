@@ -578,6 +578,62 @@ CONTENTS
 
 ---
 
+### Product Management
+
+![image of the product management page](static/screenshots/55_product_management_dropdown.png)
+
+- Site Admin have extra access to certain features on the site. 
+- One of which is Product Management. 
+- Product management can be accessed by site admin users via the "My account" dropdown in the header.
+
+#### Adding a Product
+
+![image iof the product management page](static/screenshots/56_product_management_page.png)
+
+- Here, Site Admin users can add products to the site database and display in the products page.. 
+- Site Admin can add all relevant product imformation:
+    - Product category
+    - SKU Code
+    - Name
+    - Brewery
+    - ABV
+    - Description
+    - Volume
+    - Price
+    - Rating
+    - Product Image
+- Once alll reelvant information has been input, Site admin users can can add the new product using the "Add Product" button.
+
+![image of a product being added](static/screenshots/57_product_management_adding_product.png)
+
+- Once the product is added to the site, the Site Admin user is redirected to the product detail page of the newly added product.
+
+#### Editing/Deleting a Product
+
+- Site Admin users can also edit and delete products.
+- These buttons can be found in the product list below each product or in the product detail page of the product
+
+![image of the edit and delete buttons](static/screenshots/58_edit_delete_button.png)
+
+##### Editing a product
+
+- If a Site Admin user wishes to edit a product, they can do so by clicking on the "Edit" button.
+- Once clicked, the Site Admin user will be redirected to the Product management page, "Edit a product".
+
+![image of the dit a product page](static/screenshots/59_editing_page.png)
+
+- Much like the "Add a product" page, the form is the same except that the information is prepopulated with its information. 
+
+- Here, Site Admin users can edit whatever pice of information they wish. 
+- Once completed, The Site Admin user can click the "Edit Product" button and will be redirected back to the product detail page where the updated information is being displayed.
+
+##### Deleting a Product
+
+- If the Site Admin user wants to remove a product entirely from the site and database, they can click on the "Delete" button. 
+- Once clicked, the item is removed from the site and the database.
+
+---
+
 ## User Experience (UX)
 
 This who visit the Granite Tap will most likely those interested in purchasing beer products from the Aberdeen/Aberdeenshire area.
@@ -629,3 +685,24 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 - As a **SITE ADMIN** I can **DELETE PRODUCTS FROM THE STORE SITE** so that **I CAN REMOVE ITEMS THAT ARE NO LONGER REQUIRED**
 - As a **SITE ADMIN** I can **HAVE A FACEBOOK BUSINESS PAGE** so that **I CAN EXTEND MY POTENTIAL BUSINESS FURTHER**
 - As a **SITE USER** I can **SIGN UP TO A NEWSLETTER** so that **I CAN KEEP UP TO DAYTE WITH THE LATEST PRODUCTS AND INFORMATION FROM THE SITE**
+
+### Design
+
+#### Colour Scheme
+
+- The site uses a sinmple colour scheme of monochromatic colours throught.
+- Outside of the monochronme colours are bootstrap message colours
+    - Red = Danger
+    - Yellow = Warning
+    - Blue  = Info
+    - Green = Success
+
+#### Images
+
+- There is one main image on the site of the home page. Again using mainly monochromtaic colours with a hint of amber/orange.
+- The remaining images are all product images. 
+
+#### Font
+
+- The font used throughout the site is Victor Mono. This was imported from Google fonts. Sans-serif has been used as a back up font incase of any import issues.
+
