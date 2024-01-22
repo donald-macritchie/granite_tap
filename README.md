@@ -939,3 +939,189 @@ At Granite Tap, we recognize the importance of building and nurturing a strong c
 
 ---
 
+## Testing 
+
+A variety of testing methods have been carried out on the Granite Tap site:
+- Manual Testing
+- Automated Testing
+- Code Validation
+- Device testing
+- Browser Testing
+- Bug Fixes
+
+### Manual Testing
+
+#### NavBar
+
+- The following tests are carried out when the user is **unauthenticated**.
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Logo  | When clicked, the home page will open | Clicked on the Granite Tap Logo | Home Page opened |
+| Search Bar button | Once a search term is entered into the input field, a products list will be generated in the products page with all products relating to the search term | Entered a search term and clicked search button | Products page opens with a list of products related to the search term |
+| About Link | When clicked, the about page will open | Clicked the about link | About page opened |
+| My Account Icon (when unauthenticated) | When clicked, a dropdown menu consisting of two options, "Register" and "Login" will appear | Clicked the My Account icon | Dropdown menu consisting of two options, "Register" and "Login" appears |
+| My Account - Register link | When clicked, the sign up page will open | Clicked the register link | Sign up page opened |
+| My Account - Login | When clicked, the login page will open | Clicked the login link | Login page opened |
+| Shopping Bag icon | When clicked the shopping bag page will open | Clicked the shopping bag icon | Shopping bag page opens |
+
+- The following tests are carried out when the user is **authenticated**
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| My Account - My Profile | When clicked, the users profile page will open | Clicked the My Profile link | The users profile page opened |
+| My Account - Wishlist | When clicked, the users wishlist page will open | Clicked the wishlist link | The users wishlist page opens | 
+| My Account - Logout | When clicked, the logout page will open | Clicked the logout link | 
+
+- The following tests ar ecarried out when the user is a **store admin/superuser**
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| My Account - Product Management | When clicked, the product management - add a product page will open | Clicked the Product Management link | The product management - add a product page opens |
+
+#### Product Menus
+
+##### All Products
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| By Price | When clicked, the products page will open in ascending order of price | Clicked the By Price link | Products page opens in order of ascending order| 
+| By Rating | When clicked, the products page will open in descending order of rating | Clicked the By Rating link | Products page opens in descending order of rating
+| By Category | When clicked, the products page will open in alphabetical order of product category (beer type) | Clicked the By Category link | Products page opens in alphabetical order of product category (beer type) |
+| All Products | When clicked, the products page will open | Clicked the All Products link | Products page opens |
+
+##### Beer Types
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Lager | When clicked, the products page will open displaying only Lager products | Clicked Lager link | Products page opens displaying only Lager products |
+| Ale | When clicked, the products page will open displaing only Ale products | Clicked Ale link | Products page opens displaying only Ale products |
+| Stout | When clicked, the products page will open displaing only Stout products | Clicked Stout link | Products page opens displaying only Stout products |
+| Sour | When clicked, the products page will open displaing only Sour products | Clicked Sour link | Products page opens displaying only Sour products |
+
+##### Breweries
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Brewdog | When clicked, the products page will open displaying only Brewdog products | Clicked Brewdog link | Products page opens displaying only Brewdog products |
+| Brew Toon | When clicked, the products page will open displaying only Brew Toon products | Clicked Brew Toon link | Products page opens displaying only Brew Toon products |
+| Fierce | When clicked, the products page will open displaying only Fierce products | Clicked Fierce link | Products page opens displaying only Fierce products |
+| Six° North | When clicked, the products page will open displaying only Six° North products | Clicked Six° North link | Products page opens displaying only Six° North products |
+
+#### Footer
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Contact Us link | When clicked, the About page will open at the Contact form | Clicked on the Contact link | About page opened at the Contact form |
+| Subscribe to our Newsletter Link | When clicked, the About page will open at the Newsletter sign up section | Clicked the Sign Up to our Newsletter link | About page opened at the newsletter sign up section |
+| Visit us on Facebook link | When clicked, a new tab will will open at the Facebook login page | Clicked the Visit us on Facebook link | Facebook login page opened in a new tab |
+Privacy Policy link | When clicked, the Granite Tap privacy policy document will open in a new tab | Clicked the Privacy Policy link | The Granite Tap privacy policy opened in a new tab |
+
+
+#### Home Page
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Shop Now button | When clicked, the all products page will open | Clicked the Shop Now button | The All Products page opened | 
+
+#### Products Page
+
+- When the user has filtered the product list to the product category or brewery
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Products Home link | When clicked, the All Products page will open | Clicked the Products Home link | All Products page opened |
+
+##### Sort By... Filtering
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Price (low to high) | When clicked, the products page will open with products listed in ascending order of price | Clicked Price (low to high) | Products page opened with products listed in ascending order of price |
+| Price (high to low) | When clicked, the products page will open with products listed in descending order of price | Clicked Price (high to low) | Products page opened with products listed in descending order of price |
+| Rating (low to high) | When clicked, the products page will open with products listed in ascending order of rating | Clicked Rating (low to high) | Products page opened with products listed in ascending order of rating |
+| Rating (high to low) | When clicked, the products page will open with products listed in descending order of rating | Clicked raing (high to low) | Products page opened with products listed in descending order of rating |
+| Name (A-Z) | When clicked, the products page will open with products listed in alphabetical order | Clicked Name (A-Z) | The products page opened with products listed in alphabetical order |
+| Name (Z-A) | When clicked, the products page will open with products listed in reverse alphabetical order | Clicked Name (Z-A) | The products page opened with products listed in reverse alphabetical order |
+| Category (A-Z) | When clicked, the products page will open with products listed in alphabetical order of category (beer type) | Clicked Category (A-Z) | The products page opened with products listed in alphabetical order of category (beer type) |
+| Category (Z-A) | When clicked, the products page will open with products listed in reverse alphabetical order of category (beer type) | Clicked Category (Z-A) | The products page opened with products listed in reverse alphabetical order of category (beer type) |
+
+
+##### Product card
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Product Image | When clicked, the product detail page will open | Clicked the product image | The product detail page opened | 
+| Brewery Link | When clicked, the brewery product list will open | Clicked the brewery link | The brewery product list opened |
+| Category (beer type) link | When clicked, the category product page will open | Clicked the Category (beer type) link | The Category product page opened |
+
+- The following tests ar ecarried out when the user is a **store admin/superuser**
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Edit link | When clicked, the Product management - Edit a Product page will open | Clicked the Edit link | The Product Management - Edit a Product page opened | 
+| Delete button | When clicked, the product will be removed from the product list database | Clicked the delete button | The Product is removed from the product list and database | 
+
+**If you wish to test this functionality, please do not edit or delete existing products. Create a test product first then test the edit and delete functionality. Please see the Product management testing section for more detail**
+
+#### Product Detail Page
+
+##### Product details and quantity selection
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Product Image | When clicked, the product image page will open in a new tab | Clicked the product image | The product image page opened in a new tab | 
+| Brewery Link | When clicked, the brewery product list will open | Clicked the brewery link | The brewery product list opened |
+| Category (beer type) link | When clicked, the category product page will open | Clicked the Category (beer type) link | The Category product page opened |
+| Quantity - Integer Input | When an integer is entered into the input box, a quantity integer is displayed | Entered a quantity intger into the input box | Quantity integer is displayed |
+| Quantity -  "+" button | When clicked the quantity integer in the input box will increase | Clicked the Quantity "+" button | The quantity integer increased | 
+| Quantity -  "-" button | When clicked the quantity integer in the input box will decrease | Clicked the Quantity "-" button | The quantity integer decreased | 
+| Add to bag button | When clicked, the product and selected quantity will be added to the shopping bag | Clicked the Add to Bag button | The product and selected quantity is added to the shopping bag |
+| Keep Shopping Button | When clicked, the All Products page will open | Clicked the Keep Shopping button | The All Products page opened |
+
+- The following tests are carried out when the user is **authenticated**
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Add to Wishlist button | When clicked, the product will be added to the users wishlist | Clicked the Add to Wishlist button | the product is added to the users wishlist |
+
+- The following tests ar ecarried out when the user is a **store admin/superuser**
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Edit link | When clicked, the Product Management - Edit a Product page will open | Clicked the Edit link | The Product Management - Edit a Product page opened | 
+| Delete button | When clicked, the product will be removed from the product list database | Clicked the delete button | The Product is removed from the product list and database | 
+
+##### You May Also Like...
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Product Image | When clicked, the product detail page will open | Clicked the product image | The product detail page opened | 
+| Brewery Link | When clicked, the brewery product list will open | Clicked the brewery link | The brewery product list opened |
+| Category (beer type) link | When clicked, the category product page will open | Clicked the Category (beer type) link | The Category product page opened |
+
+
+#### Shopping Bag 
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Quantity - Integer Input | When an integer is entered into the input box, a quantity integer is displayed | Entered a quantity intger into the input box | Quantity integer is displayed |
+| Quantity -  "+" button | When clicked the quantity integer in the input box will increase | Clicked the Quantity "+" button | The quantity integer increased | 
+| Quantity -  "-" button | When clicked the quantity integer in the input box will decrease | Clicked the Quantity "-" button | The quantity integer decreased | 
+| Update button | When clicked, the quantity of the product will update to the quantity specified | Clicked the Update button | The quantity updated to the spcified quantity |
+| Remove button | When clicked the product will be removed from the shopping bag | Clicked the Remove button | The product was removed from the bag |
+| Keep Shopping Button | When clicked, the All Products page will open | Clicked the Keep Shopping button | The All Products page opened |
+| Secure Checkout button | When clicked, the checkout page will open | Clicked the Secure Checkout button | The Checkout page opened |
+
+#### Checkout 
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Country Field selection | When clicked, the Country list will open allowing for user selection | Clicked the Country field | Country list opened allowing for user selection |
+| Save Delivery Info checkbox | When checked and the order is completed, the users delivery infomation will be saved to the users profile | Checked the save delivery checkbox | In the user profile, the saved delivery information prepopulated the default delivery form |
+| Payment field - Invalid Input | When the payment field is populated with an invalid card number, an error message stating "Your Card Number is Invalid", will appear below the payment field | Input an invalid card number | Error message appeared stating " Card Number is Invalid |
+| Adjust Bag button | When clicked, the Shopping Bag page will open | Clicked the Adjust Bag button | The Shopping Bag page opened |
+
+##### Completing an Order
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Complete Order button - Valid | When all required user information is entered into the form fields and the Complete order button is clicked, a pop up overlay will appear. The Order Confirmation page will then open | Entered valid user information and clicked Complete Order button | Loading overlay appeared and Confirmation page opened |
+| Complete Order button - invalid | When invalid information is entered into the form fields and the Complete Order button is clicked, an error message will appear next to the invalid field | Entered invalid information and clicked Complete Order button | Error message appeared next to the invalid field | 
