@@ -793,3 +793,149 @@ Wireframes were created using [Figma's](https://www.figma.com/) online wireframe
 - All forms across the site have required fields as appropriate and are marked with an asterisk
 - Any incorrect/invalid entries are flagged to the user with an error message.
 
+---
+
+## Business Model
+
+Granite Tap's business model is Buisness to Customer (B2C). Products are sold directly from Granite Tap to the customer. 
+
+### Marketing Strategy
+
+Granite Tap has numerous marketing strategies. These include:
+- Optimised SEO
+- Email Marketing
+- Content marketing
+- Social Media Marketing
+
+#### SEO
+
+Search Engine Optimisation (SEO) has been implemented across the site to ensure high search engine ranking.
+
+##### Keywords
+
+- In order to optimize the visibility of Granite Tap and connect with our target audience effectively, we conducted thorough keyword research. This process involved identifying and analyzing the keywords and phrases that potential customers are likely to use when searching for craft beers, particularly those produced by local breweries in Aberdeen and Aberdeenshire, Scotland.
+    - Local Craft Beer Emphasis: Emphasizing keywords related to "local craft beer" and "Aberdeen Aberdeenshire breweries" to highlight the regional aspect of our offerings.
+    - Beer Variety and Quality: Targeting keywords associated with different beer varieties, brewing techniques, and quality indicators to showcase the diversity and excellence of our beer selection.
+    - Granite Tap Unique Selling Points: Focusing on keywords that align with Granite Tap's unique selling points, such as "rich and flavourful brews", "variety of beer styles" and "local beer experience".
+
+- To leverage these keywords effectively, we have integrated them into our website content, product descriptions, and meta tags and `<strong></strong>` tags. This strategic approach aims to enhance our search engine ranking and ensure that Granite Tap appears prominently when potential customers search for craft beers in our region.
+
+- By aligning our content with the language and terms commonly used by our target audience, we aim to attract organic traffic, increase brand visibility, and ultimately drive engagement with our unique and locally brewed beer offerings.
+
+![image of keyword research](static/screenshots/71_gt_keyword_research_table.png)
+
+##### Google Search suggestions
+
+<details>
+<summary>Beer</summary>
+
+![google search suggestion "beer"](static/screenshots/72_beer_google_search.png)
+</details>
+
+<details>
+<summary>Ale</summary>
+
+![google search suggestion "ale"](static/screenshots/73_ale_google_search.png)
+</details>
+
+<details>
+<summary>IPA</summary>
+
+![google search suggestion "ipa"](static/screenshots/74_IPA_google_search.png)
+</details>
+
+<details>
+<summary>Brewery</summary>
+
+![google search suggestion "brewery"](static/screenshots/75_brewery_google_search.png)
+</details>
+
+<details>
+<summary>Craft Beer</summary>
+
+![google search suggestion "craft beer"](static/screenshots/76_craft_beer_google_search.png)
+</details>
+
+<details>
+<summary>New Beer</summary>
+
+![google search suggestion "new beer"](static/screenshots/77_new_beer_google_search.png)
+</details>
+
+<details>
+<summary>Different Beer</summary>
+
+![google search suggestion "different beer"](static/screenshots/78_different_beer_google_search.png)
+</details>
+
+<details>
+<summary>Local Beer Near Me</summary>
+
+![google search suggestion "local beer near me"](static/screenshots/79_local_beer_near_me_google_search.png)
+</details>
+
+<details>
+<summary>Buy Local Craft Beer Near Me</summary>
+
+![google search suggestion "buy local craft beer near me"](static/screenshots/80_buy_local_craft_beer_near_me_google_search.png)
+</details>
+
+<details>
+<summary>Aberdeen Beer</summary>
+
+![google search suggestion "aberdeen beer"](static/screenshots/81_aberdeen_beer.png)
+</details>
+
+<details>
+<summary>Aberdeenshire Beer</summary>
+
+![google search suggestion "aberdeenshire beer"](static/screenshots/81_aberdeen_beer.png)
+</details>
+
+##### Sitemap
+
+- A site map has been included in the site with a list of the URLs to make sure that search engines are able to understand and navigate the site's structure.
+- The site map was created using [XML-Sitemaps.com](https://www.xml-sitemaps.com/)
+
+##### Robots.txt
+
+To increase the quality of the site and improve SEO, a robots.txt file has been created to tell the search engine where it is not allowed to go.
+
+#### Email marketing
+
+At Granite Tap, we recognize the importance of building and nurturing a strong connection with our audience. Email marketing serves as a powerful tool to keep our customers informed, engaged, and excited about our latest offerings. Our email marketing strategy, powered by [Mailchimp](https://mailchimp.com/), is designed to create meaningful interactions and drive customer loyalty.
+
+##### Campaign Objectives
+
+- Newsletter Updates: Regularly share updates on new beer releases, brewery collaborations, and exclusive offers through our engaging newsletter.
+- Exclusive Promotions: Provide our subscribers with exclusive promotions, discounts, and early access to limited-edition brews to reward their loyalty.
+
+##### Using Mailchimp
+
+- Mailchimp enables Granite Tap to view the number of subscribers to the newsletter and from there can gauge subscriber growth over a period of time. This allows analysis of Newsletter content against product sales.
+
+
+#### Content Marketing
+
+- Granite Tap uses high quality product images to ensure user engagement. All product images have been used in small file sizes to minimise image loading times on the site.
+
+#### Social Media Marketing
+
+- At Granite Tap, our social media marketing strategy revolves around leveraging the power of Facebook to connect with our audience, build brand awareness, and foster engagement within the vibrant beer community. Here's an overview of our Facebook-focused social media page:
+
+![image of facebook business page](static/screenshots/83_fb_header.png)
+
+- Sharing visually appealing content, including high-quality images and videos that showcase our beers, brewery events, and behind-the-scenes moments.
+
+![image of facebook post image](static/screenshots/84_fb_image_post.png)
+
+- Fostering a sense of community by encouraging conversations, sharing experiences, and celebrating the craft brewing culture.
+
+![image of facebook post](static/screenshots/85_fb_text_post.png)
+
+- A link to the Granite Tap Facebook page is located in the footer of the site
+
+***As this site is for educational purposes, the Granite Tap Facebook page has been deactivated and the link in the footer will open a new tab to the Facebook login page***
+
+---
+
