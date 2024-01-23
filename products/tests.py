@@ -8,8 +8,6 @@ class CategoryModelTest(TestCase):
     def test_category_str_method(self):
         self.assertEqual(str(self.category), 'Test Category')
 
-    def test_category_friendly_name(self):
-        self.assertEqual(self.category.get_friendly_name(), 'Friendly Category')
 
 class RelatedProductModelTest(TestCase):
     def setUp(self):

@@ -90,7 +90,7 @@
         "fields": {
             "sku": "WH5335L",
             "name": "Weekend Hooker",
-            "brewery": "Brew Toon",
+            "brewery": "BrewToon",
             "abv": "5.0",
             "description": "Get hooked on our new craft lager! Reinvented with a bold variety of malts & left to condition until the optimum moment to ensure a smooth head with a soft, refreshing finish. Earthy in aroma, expect a full bodied malt character, with citrusy undertones and an assured bitter finish.",
             "volume": "440ml",
@@ -107,7 +107,7 @@
         "fields": {
             "sku": "WTTT102720RIS",
             "name": "Wired To The Toon",
-            "brewery": "Brew Toon",
+            "brewery": "BrewToon",
             "abv": "10.2",
             "description": "Caramel Macchiato Impy Stout 10.2% A Russian Imperial Stout, soaked in rich caramel, vanilla & coffee flavours. A blend of malt consisting of Carafa, Crystal & Munich, creates a smooth complex body with notes of dark chocolate & toffee. Double infused with UK roasted Bennachie Coffee and left to condition on vanilla & caramel creme, bringing deep macchiato aromas and flavours to this strong, dark brew.",
             "volume": "440ml",
@@ -124,7 +124,7 @@
         "fields": {
             "sku": "T45360PA",
             "name": "Trawlerman",
-            "brewery": "Brew Toon",
+            "brewery": "BrewToon",
             "abv": "4.5",
             "description": "Harsh weather, high sea and hardworking folk, Peterhead has them all. Life at sea builds up a thirst like no other, so - once back on dry land, reaching for this crushable hazy champion is the best welcome home any Trawlerman could have. Double dry-hopped with Galaxy & Azacca for a full on citrus and tropical flavour.",
             "volume": "440ml",
@@ -141,7 +141,7 @@
         "fields": {
             "sku": "MU585380IPA",
             "name": "M'ango Unchained",
-            "brewery": "Brew Toon",
+            "brewery": "BrewToon",
             "abv": "5.8",
             "description": "Crafted with all the hop goodness of an IPA and infused with mouth-watering mango & passion fruits. Tropical on the nose & naturally hazy in colour, we have unchained masses of mango & hops into this one and created a beer that is sharp, edgy and bursting with flavour. “A fortuitous turn of events brought M’ango and ourselves together",
             "volume": "440ml",
@@ -158,7 +158,7 @@
         "fields": {
             "sku": "STTP5425S",
             "name": "Sour To The People",
-            "brewery": "Brew Toon",
+            "brewery": "BrewToon",
             "abv": "5.0",
             "description": "We gathered as much local rhubarb and strawberries that we could get our hands on to create this blade of a beer, sharp and fruity with a wicked bite. Loaded with fresh rhubarb and kettle soured to amplify the tartness, we have balanced the all round flavour profile by conditioning with fresh, juicy strawberries.",
             "volume": "440ml",
@@ -260,7 +260,7 @@
         "fields": {
             "sku": "OM43345IPA",
             "name": "Omnium",
-            "brewery": "Six° North",
+            "brewery": "Six°North",
             "abv": "4.3",
             "description": "Omnium is a full-flavoured Session IPA with bold citrus and tropical fruit notes. Generous doses of Citra, Amarillo, Mosaic & Simcoe hops makes Omnium an all round crowd pleaser!",
             "volume": "440ml",
@@ -277,7 +277,7 @@
         "fields": {
             "sku": "BAM80460ST",
             "name": "Barrel Aged Moon",
-            "brewery": "Six° North",
+            "brewery": "Six°North",
             "abv": "8.0",
             "description": "Rich sweet Bourbon goodness, big sherry notes and a rewarding finish. Aged in Fattercairn whisky casks.",
             "volume": "440ml",
@@ -294,7 +294,7 @@
         "fields": {
             "sku": "PEL41335LA",
             "name": "Peleton",
-            "brewery": "Six° North",
+            "brewery": "Six°North",
             "abv": "4.1",
             "description": "Peloton is a classic Pilsner, brewed to style; crisp with a noble bitterness. Peloton is produced using Scottish Pilsner malt, German hops and time. A refreshing and super accessible beer.",
             "volume": "440ml",
@@ -311,7 +311,7 @@
         "fields": {
             "sku": "SUMBL46390SOU",
             "name": "Summer Bliss",
-            "brewery": "Six° North",
+            "brewery": "Six°North",
             "abv": "4.6",
             "description": "Rhubarb and raspberries were aged in barrel to produce a complex sour beer with a refreshing kick of fruit.",
             "volume": "440ml",
@@ -328,7 +328,7 @@
         "fields": {
             "sku": "VEL5390PA",
             "name": "Velodrome",
-            "brewery": "Six° North",
+            "brewery": "Six°North",
             "abv": "5.0",
             "description": "Bursting with aromas of papaya and soft apricot with a palate balanced with citrus, all wrapped up in a bed of haze.",
             "volume": "440ml",

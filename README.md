@@ -1203,5 +1203,387 @@ Privacy Policy link | When clicked, the Granite Tap privacy policy document will
 | Sign Up link | When clicked, the Sign Up page will open | Clicked the Sign Up link | The Sign Up Page opened |
 | Sign In button | Once the user has entered their account information and password, when clicked, the home page will open | Entered user information and password, clicked sign in button | Home page opened | 
 | Home Button | When clicked the Home Page will open | Clicked the Home button | The Home Page opened | 
-| Forgot your Passwrd? link | 
+| Forgot your Password? link | When clicked, the password reset page will open | Clicked the Forgot your Password? link | The password reset page opened | 
 
+#### Logout Page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Sign Out button | When clicked, the Home page will open | Clicked the Sign Out button | The Home Page opened |
+| Cancel button | When clicked, the Home Page will open | Clicked the cancel button | Home Page opened | 
+
+#### Password Reset page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Reset my Password | Once the user has input their email into the input field, when clicked, the Password Reset Done page will open | Entered user email into input field and clicked Reset my Password button | The Password Reset Done page opened | 
+
+#### Change Password 
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Change Password button | Once the user enters a new password and confirms it in both input fields, when clicked, Password Reset Key Done page will open | Entered new password and confirmed then clicked Change password button | Password Reset Key Done page opened | 
+Back to login button | When clicked, the Login/SignIn page will open | Clicked the Back to Login button | The Login/SignIn page opened | 
+
+#### About Page
+
+##### FAQs
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| FAQs to open Bootstrap Accordian | When clicked, the answer will dropdown from the question | Clicked the FAQ | The Answer dropped down | 
+| FAQs to close Bootstrap Accordian | When clicked, the answer will collapse back into the question | Clicked the FAQ | The Answer collapsed back into the question | 
+
+##### Newsletter
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Newsletter subscribe button | Once a user has entered an email address into the input field, when clicked, a new tab will open with the newsletter subscription confirmation | Entered email address | A new tab opened with the newsletter subscription confirmation | 
+
+##### Contact Us
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Submit button | Once the user has input all their information into the required fields, when clicked, the form data will be stored in the admin and the user is redirected back to the about page | Entered information into the required fields and clicked submit | Redirect to about page. Form data stored in the admin | 
+
+### Automated Testing
+
+- The following tests were carried out using Djangos builtin TestCase
+
+#### About Model
+
+```python
+class AboutModelsTest(TestCase):
+    def setUp(self):
+        About.objects.create(title="Test About Title", content="Test About Content")
+        FAQ.objects.create(question="Test FAQ Question", answer="Test FAQ Answer")
+
+    # Testing the string representaion of the about model
+    def test_about_model_str(self):
+        about = About.objects.get(title="Test About Title")
+        self.assertEqual(str(about), "Test About Title")
+
+    # Testing the String representaion of the FAQ model
+    def test_faq_model_str(self):
+        faq = FAQ.objects.get(question="Test FAQ Question")
+        self.assertEqual(str(faq), "Test FAQ Question")
+```
+
+- Test Results:
+
+![image of aboutmodelstest result](static/screenshots/89_aboutmodelstest.png)
+
+##### About Views
+
+```python
+class AboutViewTests(TestCase):
+    def setUp(self):
+        self.about = About.objects.create(title='Test About', content='Test content')
+        self.faq = FAQ.objects.create(question='Test Question', answer='Test Answer')
+
+    def test_about_page_view(self):
+        client = Client()
+        url = reverse('about_page')
+        response = client.get(url)
+
+        # Assert the expected HTTP status code
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is being used
+        self.assertTemplateUsed(response, 'about/about.html')
+
+        # Assert that the about_content and faqs are present in the context
+        self.assertIn('about_content', response.context)
+        self.assertIn('faqs', response.context)
+
+        # Assert that the about_content and faqs match the data created in the setUp method
+        self.assertQuerysetEqual(response.context['about_content'], [repr(self.about)])
+        self.assertQuerysetEqual(response.context['faqs'], [repr(self.faq)])
+```
+
+- Test results:
+
+![image of about views tests](static/screenshots/90_aboutviewstest.png)
+
+##### Bag Views
+
+```python
+class BagViewTests(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.product = Product.objects.create(name='Test Product', price=10.0, abv="1.1")
+
+
+
+    def test_view_bag(self):
+        client = Client()
+        url = reverse('view_bag')
+        response = client.get(url)
+
+        # Assert the expected HTTP status code
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is being used
+        self.assertTemplateUsed(response, 'bag/bag.html')
+
+
+
+    def test_add_to_bag(self):
+        url = reverse('add_to_bag', args=[self.product.id])
+        response = self.client.post(url, {'quantity': 2, 'redirect_url': reverse('view_bag')})
+
+        # Assert the expected HTTP status code
+        self.assertEqual(response.status_code, 302)
+
+        # Follow the redirect to view_bag
+        response = self.client.get(response.url)
+
+        # Assert that the success message is present in the messages
+        messages = [m.message for m in list(response.context['messages'])]
+        self.assertIn(f'Added {self.product.name} to your bag', messages)
+
+
+    def test_adjust_bag_remove_product(self):
+        product = self.product
+        self.client.post(reverse('add_to_bag', args=[product.id]), {'quantity': 1, 'redirect_url': reverse('view_bag')})
+        item_id = str(product.id)
+        response = self.client.post(reverse('adjust_bag', args=[item_id]), {'quantity': 0})
+        bag = response.client.session.get('bag', {})
+
+        # Assert that the product is removed from the bag
+        self.assertNotIn(item_id, bag)
+
+    def test_remove_from_bag(self):
+        self.client.post(reverse('add_to_bag', args=[self.product.id]), {'quantity': 1, 'redirect_url': reverse('view_bag')})
+        item_id = str(self.product.id)
+        response = self.client.post(reverse('remove_from_bag', args=[item_id]))
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the product is removed from the bag
+        bag = self.client.session.get('bag', {})
+        self.assertNotIn(item_id, bag)
+
+        # Check the success message
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+        self.assertIn(f'Removed {self.product.name} from your bag', messages)
+```
+
+- Test Results:
+
+![image of the bag views tests](static/screenshots/91_bagviewtests.png)
+
+##### Checkout Models
+
+```python
+    class CheckoutModelTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.product = Product.objects.create(name='Test Product', price=10.0, abv="1.1")
+
+    def test_order_creation(self):
+        order = Order.objects.create(
+            user_profile=None,
+            full_name='Test User',
+            email='test@example.com',
+            phone_number='123456789',
+            country=Country('US'),
+            postcode='12345',
+            town_or_city='Test City',
+            street_address1='123 Test Street',
+            street_address2='Apt 4',
+            county='Test County',
+            original_bag='{}',
+            stripe_pid='testpid'
+        )
+
+        # Check if order number is generated
+        self.assertIsNotNone(order.order_number)
+
+        # Check if order total is zero initially
+        self.assertEqual(order.order_total, 0)
+
+        # Check if delivery cost is set to default
+        self.assertEqual(order.delivery_cost, 0)
+
+        # Check if grand total is initially zero
+        self.assertEqual(order.grand_total, 0)
+
+
+    def test_line_item_creation(self):
+        order = Order.objects.create(
+            user_profile=None,
+            full_name='Test User',
+            email='test@example.com',
+            phone_number='123456789',
+            country=Country('US'),
+            postcode='12345',
+            town_or_city='Test City',
+            street_address1='123 Test Street',
+            street_address2='Apt 4',
+            county='Test County',
+            original_bag='{}',
+            stripe_pid='testpid'
+        )
+
+        line_item = OrderLineItem.objects.create(
+            order=order,
+            product=self.product,
+            quantity=2,
+            lineitem_total=self.product.price * 2
+        )
+
+        # Check if the line item is associated with the correct order
+        self.assertEqual(line_item.order, order)
+
+    def test_order_total_calculation(self):
+        order = Order.objects.create(
+            user_profile=None,
+            full_name='Test User',
+            email='test@example.com',
+            phone_number='123456789',
+            country=Country('US'),
+            postcode='12345',
+            town_or_city='Test City',
+            street_address1='123 Test Street',
+            street_address2='Apt 4',
+            county='Test County',
+            original_bag='{}',
+            stripe_pid='testpid'
+        )
+
+        line_item1 = OrderLineItem.objects.create(
+            order=order,
+            product=self.product,
+            quantity=2,
+            lineitem_total=self.product.price * 2
+        )
+
+        line_item2 = OrderLineItem.objects.create(
+            order=order,
+            product=self.product,
+            quantity=3,
+            lineitem_total=self.product.price * 3
+        )
+
+        # Check if the order total is calculated correctly
+        self.assertEqual(order.order_total, line_item1.lineitem_total + line_item2.lineitem_total)
+```
+
+- Test Results:
+
+![imag of the checkout models tests](static/screenshots/92_checkoutmodeltests.png)
+
+##### Product Models
+
+```python
+class CategoryModelTest(TestCase):
+    def setUp(self):
+        self.category = Category.objects.create(name='Test Category', friendly_name='Friendly Category')
+
+    # Checks the string representation of the Category Model
+    def test_category_str_method(self):
+        self.assertEqual(str(self.category), 'Test Category')
+
+
+class RelatedProductModelTest(TestCase):
+    def setUp(self):
+        self.product = Product.objects.create(
+            name='Test Product',
+            brewery='Test Brewery',
+            abv=5.0,
+            description='Test Description',
+            volume='Test Volume',
+            price=20.0,
+        )
+        self.related_product = RelatedProduct.objects.create(product=self.product)
+
+    def test_related_product_str_method(self):
+        expected_str = f'Related product for {self.product.name}'
+        self.assertEqual(str(self.related_product), expected_str)
+
+class ProductModelTest(TestCase):
+    def setUp(self):
+        self.category = Category.objects.create(name='Test Category')
+        self.product = Product.objects.create(
+            category=self.category,
+            sku='TestSKU123',
+            name='Test Product',
+            brewery='Test Brewery',
+            abv=5.0,
+            description='Test Description',
+            volume='Test Volume',
+            price=20.0,
+        )
+
+    def test_product_str_method(self):
+        self.assertEqual(str(self.product), 'Test Product')
+```
+
+- Test Results
+
+![image of the product models test results](static/screenshots/93_productmodelstets.png)
+
+##### Wishlist
+
+```python
+class WishlistModelTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.product = Product.objects.create(
+            name='Test Product',
+            brewery='Test Brewery',
+            abv=5.0,
+            description='Test Description',
+            volume='Test Volume',
+            price=20.0,
+        )
+
+    def test_wishlist_creation(self):
+        wishlist = Wishlist.objects.create(user=self.user)
+        wishlist.products.add(self.product)
+
+        # checks number of wishlist items
+        self.assertEqual(Wishlist.objects.count(), 1)
+        # checks if expected user
+        self.assertEqual(wishlist.user, self.user)
+        # checks if added product is in the wishlist
+        self.assertTrue(wishlist.products.filter(pk=self.product.pk).exists())
+```
+- Test Result:
+
+![image of the wishlist testresults](static/screenshots/94_wishlist_test.png)
+
+### Code Validation
+
+
+| Page | | | Errors |
+| --| --| --| --|
+| Home | | | No Errors |
+|  | | | No Errors |
+
+- Errors returned with duplicate ids. This is due to the mobile-top-header.html file being included. As it uses the same ids. 
+
+
+
+### Device Testing 
+
+- The site has been tested on a variety of device sizes using Chromes devtools.
+- Devices tested:
+    - Desktop
+    - Laptop
+    - Tablet
+    - Phone
+
+### Browser Tesing
+
+- The site has been tested on Google Chrom, Safari and Firefox. 
+- No issues have been identified while using these browsers
+
+### Bug Fixes
+
+#### Stripe Webhooks
+- Having tested the site in the development environment, processing orders were working. However when testing the payment process in the live environment didn't give positive results. I iitially thought there was an issue with the webhook code in the checkout app. All environment variables were correct as well as the Heroku Config Vars. After some Investigation, I realised that the endpoint generated in the Stripe dashboard was being used for the development environment and not the Live environment. This was a fairly easy fix. I generated a new webhook endpoint in Stripe and applied the new environment keys required.
+
+
+#### Django emails
+- When testing in the Live environment, Emails were not being automatically sent when they should have. I discovered this bug when registering a user account and no confirmation email was being sent. The issue was due to a recent change on Heroku where Heroku will build everything on Python 3.12, which isn't compatable with smtplib. The solution was to create a new file `runtime.txt` in the root directory of the project and add `python-3.9.18`. This tells Heroku what version to build the project with

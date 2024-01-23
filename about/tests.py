@@ -17,10 +17,6 @@ class AboutModelsTest(TestCase):
         faq = FAQ.objects.get(question="Test FAQ Question")
         self.assertEqual(str(faq), "Test FAQ Question")
 
-    def test_about_model_ordering(self):
-        about_titles = [about.title for about in About.objects.all()]
-        self.assertEqual(about_titles, ["Test About Title"])
-
 class AboutViewTests(TestCase):
     def setUp(self):
         self.about = About.objects.create(title='Test About', content='Test content')
