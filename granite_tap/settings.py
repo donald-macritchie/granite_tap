@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = 'DEVELOPMENT' in os.environ
-# DEBUG = False
+
 
 ALLOWED_HOSTS = ['8000-donaldmacrit-granitetap-kh158kii1ld.ws-eu107.gitpod.io', 'granite-tap-d7fc252cb5b2.herokuapp.com', 'localhost']
 
