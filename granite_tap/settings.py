@@ -212,7 +212,6 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 
-
 # Stripe 
 FREE_DELIVERY_THRESHOLD = 30
 STRIPE_CURRENCY = 'gbp'
