@@ -632,6 +632,31 @@ CONTENTS
 - If the Site Admin user wants to remove a product entirely from the site and database, they can click on the "Delete" button. 
 - Once clicked, the item is removed from the site and the database.
 
+#### User Accounts
+
+##### Register/Sign Up
+
+- The site has a sign up page for users to register for a site account.
+- Users can navigate to the Sign Up page via the My Account icon in the header as documented above
+
+![image of the sign up page](static/screenshots/86_sign_up.png)
+
+- Here, users can enter their personal information to craete a user account.
+- In order to create the account, the user will be given instructions and sent an email to their personal email account asking them to follow a link back to Granite Tap, asking them to confirm their email.
+
+##### Login
+
+- If Users have signed up for an account, they can login via the My Account icon in the header as documented above
+
+![image of the login page](static/screenshots/87_login.png)
+
+##### Logout
+
+- Users can logout of their account via the My Account icon in the header as documented above. 
+- Once logged out, users will be redirected to the Home Page.
+
+![image of the logout page](static/screenshots/88_logout.png)
+
 ---
 
 ## User Experience (UX)
@@ -1125,3 +1150,58 @@ Privacy Policy link | When clicked, the Granite Tap privacy policy document will
 | --| --| --| --|
 | Complete Order button - Valid | When all required user information is entered into the form fields and the Complete order button is clicked, a pop up overlay will appear. The Order Confirmation page will then open | Entered valid user information and clicked Complete Order button | Loading overlay appeared and Confirmation page opened |
 | Complete Order button - invalid | When invalid information is entered into the form fields and the Complete Order button is clicked, an error message will appear next to the invalid field | Entered invalid information and clicked Complete Order button | Error message appeared next to the invalid field | 
+
+#### Order Confirmation page
+
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Have a look back at more of our beers button | When clicked, the All Products page will open | Clicked the Have a look back at our beers button | The All Products page opened | 
+
+#### Profile Page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Update information button | Once new information has been entered into the Default Delivery Information form, when clicked, the new information will populate the form | Input new informtion into Default Delivery Information form and clicked Update Information button | New information populated the Default Delivery Information form |
+| Order History - Order Number Link | When clicked, the Order Confirmation page will open | Clicked the Order Nunber link | Order Confirmation page opened |
+
+#### Order History page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Back to Profile button | When clicked, the users profile page will open | Clicked the Bcak to Profile button | The Users profile page opened |
+
+#### Wishlist Page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Product Card - Product Image | When clicked the product's Product detail page will open | Clicked the Prodduct Image | The product's Product detail page opened | 
+| Product Card - Brewery Link | When clicked, the brewery product list will open | Clicked the brewery link | The brewery product list opened |
+| Product Card - Category (beer type) link | When clicked, the category product page will open | Clicked the Category (beer type) link | The Category product page opened |
+| Remove form Wishlist button | When clicked, the product will be removed from the wishlist | Clicked teh Remove from Wishlist button | The product was removed from the Wishlist | 
+
+#### Register/Sign Up Page
+
+- The following test has been carried out by an unregistered/logged out user
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Sign In link | When clicked, the login/sign in page will open | Clicked the sign in link | The login/sign in page opened |
+| Sign Up button - Valid | When the input fields have valid information, when clicked, the Verify Your Email page will open | Enter Valid information into the input fields | The Verify your Email page opened | 
+| Once Email Has been verified | Once the users email has been verified from the users email account, the Confirm Email page will open | Verified Email from users email account | Confirm Email page opened | 
+
+#### Confirm Email Page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Confirm button | When clicked, the login/Sign in page will open | Clicked the Confirm button | The login/sign in page opened | 
+
+#### Login/Sign In page
+
+| Feature | Expect | Action | Result |
+| --| --| --| --|
+| Sign Up link | When clicked, the Sign Up page will open | Clicked the Sign Up link | The Sign Up Page opened |
+| Sign In button | Once the user has entered their account information and password, when clicked, the home page will open | Entered user information and password, clicked sign in button | Home page opened | 
+| Home Button | When clicked the Home Page will open | Clicked the Home button | The Home Page opened | 
+| Forgot your Passwrd? link | 
+
