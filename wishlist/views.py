@@ -3,6 +3,7 @@ from .models import Wishlist
 from products.models import Product
 from django.contrib import messages
 
+
 def wishlist(request):
     if request.user.is_authenticated:
         wishlist_item_ids = request.session.get('wishlist', [])
@@ -11,18 +12,18 @@ def wishlist(request):
         template = 'wishlist/wishlist.html'
         context = {
             'wishlist_items': wishlist_items,
-            
+
         }
         return render(request, template, context)
     else:
         return redirect('product_detail')
+
 
 def add_to_wishlist(request, item_id):
     """ Add a product to the wishlist """
 
     product = get_object_or_404(Product, pk=item_id)
 
-    
     wishlist = request.session.get('wishlist', [])
 
     if item_id not in wishlist:
@@ -48,7 +49,6 @@ def remove_from_wishlist(request, item_id):
         messages.info(request, f'{product.name} is not in your wishlist.')
 
     request.session['wishlist'] = wishlist
-
 
     wishlist_url = reverse('wishlist:wishlist')
     return redirect(wishlist_url)

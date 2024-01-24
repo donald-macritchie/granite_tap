@@ -1555,6 +1555,9 @@ class WishlistModelTest(TestCase):
 
 ### Code Validation
 
+#### HTML
+
+- Validation was carried out using [W3C HTML Validator](https://www.w3.org/)
 
 | Page | | | Errors |
 | --| --| --| --|
@@ -1567,16 +1570,65 @@ class WishlistModelTest(TestCase):
 | Ale | | | No Errors |
 | Stout | | | No Errors |
 | Sour | | | No Errors |
+| Product Detail | | | No Errors |
+| Shopping Bag | | | No Errors |
+| Checkout | | | No Errors |
+| Order Confirmation | | | No Errors |
 | About | | | No Errors |
-| My Profile | | |  |
+| My Profile | | | No Errors |
 | Order History | | | No Errors |
 | Wishlist | | | No Errors |
-| Wishlist | | | No Errors |
+| Product Management - Add a Product | | | No Errors |
+| Product Management - Edit a Product | | | No Errors |
+| Sign Up/Register | | | No Errors |
+| Login | | | No Errors |
+| Logout | | | No Errors |
+| Password Reset | | | No Errors |
+| Change Password | | | No Errors |
+| Change Password Success | | | No Errors |
 
 - Errors returned with duplicate ids. This is due to the mobile-top-header.html file being included. As it uses the same ids. 
 
+#### CSS
 
+- Validation was carried out using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
+| File | | | Errors |
+| --| --| --| --|
+| base.css | | | No Errors |
+| profiles.css | | | No Errors |
+| checkout.css | | | No Errors |
+
+#### JavaScript
+
+- Validation was carried out using [JSHint](https://jshint.com/)
+
+| File | | | Errors |
+| --| --| --| --|
+| about.html | | | No Errors |
+| bag.html | | | No Errors |
+| stripe_elements.js | | | No Errors |
+| products.html | | | No Errors |
+| add_product.html | | | No Errors |
+| edit_product.html | | | No Errors |
+| quantity_input_script.html | | | No Errors |
+| countryfield.js | | | No Errors |
+| base.html | | | No Errors |
+
+#### Python
+
+- Validation was carried out using [pep8 CI Pyton Linter](https://pep8ci.herokuapp.com/#)
+
+| App | | | Errors |
+| --| --| --| --|
+| About | | | No Errors |
+| Bag | | | No Errors |
+| Checkout | | | No Errors |
+| Granite Tap (project) | | | No Errors |
+| Home | | | No Errors |
+| Products | | | No Errors |
+| Profiles | | | No Errors |
+| Wishlist | | | No Errors |
 
 
 ### Device Testing 

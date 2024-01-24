@@ -18,7 +18,7 @@ class FAQ(models.Model):
     answer = models.TextField()
 
     def __str__(self):
-            return self.question
+        return self.question
 
 
 class Contact(models.Model):

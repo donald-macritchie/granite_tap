@@ -10,6 +10,7 @@ import random
 
 # Create your views here.
 
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -36,7 +37,6 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -45,14 +45,13 @@ def all_products(request):
         if 'brewery' in request.GET:
             brewery = request.GET['brewery']
             products = products.filter(brewery__iexact=brewery)
-            
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
@@ -73,11 +72,10 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-
     product_category = product.category
 
-
-    related_products = Product.objects.filter(category=product_category).exclude(id=product.id).order_by('?')[:2]
+    related_products = Product.objects.filter(
+        category=product_category).exclude(id=product.id).order_by('?')[:2]
 
     context = {
         'product': product,
@@ -87,14 +85,13 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
-
 @login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only Store Admin can do this.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -105,13 +102,14 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -140,6 +138,7 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, product_id):

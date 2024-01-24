@@ -6,10 +6,15 @@ from django_countries.fields import Country
 from checkout.models import Order, OrderLineItem
 from products.models import Product
 
+
 class CheckoutModelTests(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.product = Product.objects.create(name='Test Product', price=10.0, abv="1.1")
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword'
+        )
+        self.product = Product.objects.create(
+            name='Test Product', price=10.0, abv="1.1"
+        )
 
     def test_order_creation(self):
         order = Order.objects.create(
@@ -38,7 +43,6 @@ class CheckoutModelTests(TestCase):
 
         # Check if grand total is initially zero
         self.assertEqual(order.grand_total, 0)
-
 
     def test_line_item_creation(self):
         order = Order.objects.create(
@@ -97,4 +101,5 @@ class CheckoutModelTests(TestCase):
         )
 
         # Check if the order total is calculated correctly
-        self.assertEqual(order.order_total, line_item1.lineitem_total + line_item2.lineitem_total)
+        self.assertEqual(order.order_total,
+                         line_item1.lineitem_total + line_item2.lineitem_total)

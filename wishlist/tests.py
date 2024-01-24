@@ -7,7 +7,9 @@ from wishlist.models import Wishlist
 
 class WishlistModelTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword'
+        )
         self.product = Product.objects.create(
             name='Test Product',
             brewery='Test Brewery',
@@ -27,7 +29,3 @@ class WishlistModelTest(TestCase):
         self.assertEqual(wishlist.user, self.user)
         # checks if added product is in the wishlist
         self.assertTrue(wishlist.products.filter(pk=self.product.pk).exists())
-
-
-
-

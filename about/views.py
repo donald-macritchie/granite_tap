@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import About, FAQ, Contact
 from .forms import ContactForm
 
+
 def about_page(request):
     about_content = About.objects.all()
     faqs = FAQ.objects.all()
@@ -25,6 +26,7 @@ def about_page(request):
         'about_content': about_content,
         'faqs': faqs,
         'contact_form': form,
-        'contact_info': Contact.objects.first(),  # Assuming you have only one contact entry
+        'contact_info': Contact.objects.first(),
     }
     return render(request, template, context)
+    
