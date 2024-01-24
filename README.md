@@ -1568,7 +1568,10 @@ class WishlistModelTest(TestCase):
 | Stout | | | No Errors |
 | Sour | | | No Errors |
 | About | | | No Errors |
-| About | | | No Errors |
+| My Profile | | |  |
+| Order History | | | No Errors |
+| Wishlist | | | No Errors |
+| Wishlist | | | No Errors |
 
 - Errors returned with duplicate ids. This is due to the mobile-top-header.html file being included. As it uses the same ids. 
 
