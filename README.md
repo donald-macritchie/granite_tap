@@ -1648,8 +1648,272 @@ class WishlistModelTest(TestCase):
 ### Bug Fixes
 
 #### Stripe Webhooks
-- Having tested the site in the development environment, processing orders were working. However when testing the payment process in the live environment didn't give positive results. I iitially thought there was an issue with the webhook code in the checkout app. All environment variables were correct as well as the Heroku Config Vars. After some Investigation, I realised that the endpoint generated in the Stripe dashboard was being used for the development environment and not the Live environment. This was a fairly easy fix. I generated a new webhook endpoint in Stripe and applied the new environment keys required.
+- Having tested the site in the development environment, processing orders were working. However when testing the payment process in the live environment didn't give positive results. I initially thought there was an issue with the webhook code in the checkout app. All environment variables were correct as well as the Heroku Config Vars. After some Investigation, I realised that the endpoint generated in the Stripe dashboard was being used for the development environment and not the Live environment. This was a fairly easy fix. I generated a new webhook endpoint in Stripe and applied the new environment keys required.
 
 
 #### Django emails
 - When testing in the Live environment, Emails were not being automatically sent when they should have. I discovered this bug when registering a user account and no confirmation email was being sent. The issue was due to a recent change on Heroku where Heroku will build everything on Python 3.12, which isn't compatable with smtplib. The solution was to create a new file `runtime.txt` in the root directory of the project and add `python-3.9.18`. This tells Heroku what version to build the project with
+
+---
+
+## Project Set Up and Deployment
+
+### Project Set Up
+
+In order to set up this project, these steps were taken:
+
+- In GitHub:
+    - Set up a new repository using the Code Institute template.
+    - Give it a unique name.
+- In Gitpod (or a IDE of your choice):
+    - Click "New Workspace"
+    - Paste the repositiory URL into the new workspace and click "Continue"
+    - After a minute or two, the workspace will open.
+- In the Workspace Terminal:
+    - Install Django using the command
+    ```text
+    pip3 install 'django<4'
+    ```
+    - Create the project:
+    ```text
+    django-admin startproject granite_tap .
+    ```
+    - Run the project:
+    ```text
+    python3 manage.py runserver
+    ```
+    - If required, add the development server URL to the ```ALLOWED_HOSTS``` in order to view in the browser.
+    - Run the initail migrations:
+    ```text
+    python3 manage.py migrate
+    ```
+    - To be able to login to the django admin, create a superuser:
+    ```text
+    python3 manage.py createsuperuser
+    ```
+    - Enter a Username, email and password.
+    - Initial commit:
+    ```text
+    git add .
+    git commit -m "initail commit"
+    git push
+    ```
+
+### Deployment
+
+In order to deploy the project to host the site on heroku, these steps were taken.
+
+#### Create PostgreSQL database
+
+- Login to [ElephantSQL](https://www.elephantsql.com/)
+- On the dashboard click "Create New Instance"
+- Set up your plan:
+    - Give it a name.
+    - Select the "Tiny Turtle (Free) plan.
+    - Tags can be left blank.
+- Select your region.
+- Select a data center near you.
+- Click "Review".
+- Check the detail are correct and click "Create Instance"
+- Return to the ElephantSQL dashboard and click on the database instance name for the project.
+- In the URL section, click the copy icon and the database URL will be copied to your clipboard.
+
+#### Create a New Heroku App
+
+- In [Heroku](https://id.heroku.com/login) click "New" to create a new app.
+- Give it a name and select a region closest to you.
+- Click "Create App"
+- Open the settings tab.
+    - In the settings tab, click "Reveal Config Vars"
+    -  Add the config var "DATABASE_URL" for the key and paste in the ElephantSQL database url into the value and click "Add".
+
+#### In the workspace terminal
+
+- Install dj_database_url and psycopg2:
+```text
+    pip3 install dj_database_url==0.5.0 psycopg2
+```
+- Update the requirements.txt file:
+```text
+    pip3 freeze > requirements.txt
+```
+
+#### In settings.py
+
+- Import dj_database_url underneath the import for os:
+```python
+    import os
+    import dj_database_url
+```
+- Scroll to the DATABASES section:
+    - Update it to the following code, so that the original connection to sqlite3 is commented out and we connect to the new ElephantSQL database instead. Paste in your ElephantSQL database URL in the position indicated
+```python
+     # DATABASES = {
+ #     'default': {
+ #         'ENGINE': 'django.db.backends.sqlite3',
+ #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+ #     }
+ # }
+     
+ DATABASES = {
+     'default': dj_database_url.parse('your-database-url-here')
+ }
+```
+**DO NOT commit this file with your database string in the code, this is temporary so that we can connect to the new database and make migrations. We will remove it in a moment.**
+
+#### In the Terminal:
+
+- Run the showmigrations command to ensure you are connected to the external database
+```text
+    python3 manage.py showmigrations
+```
+
+- Migrate your database models to your new database:
+```text
+    python3 manage.py migrate
+```
+
+- Load your categories fixture:
+```text
+    python3 manage.py loaddata categories
+```
+
+- Load your products fixture:
+```text
+    python3 manage.py loaddata products
+```
+
+- Create a new superuser for your database:
+```text
+    python3 manage.py createsuperuser
+```
+
+- In order to prevent exposing the database when pushed to github, it will be deleted again from settings.py
+
+#### In settings.py
+
+- For the time being, reconnect to the local sqlite database
+- your DATABASES section should look like this:
+```python
+    DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     }
+ }
+```
+
+#### In ElephantSQL
+
+- To confirm the data in the database has been created, navigate to the "Browser" tab in the ElephantSQL dashboard.
+- Click "Table queries" button
+- Select "auth_user"
+- Click "Execute"
+- You should now see the newly created superuser details being displayed. This confirms that you can add data to your database.
+
+#### In settings.py
+
+- In the DATABASE section create an "if" statement so when the app is running on Heroku the database URL environment will be connected to the Postgres database.
+- In the "else" block, it will use the default database.
+```python
+    if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+
+#### In the terminal
+
+- Install gunicorn:
+```text
+    pip3 install gunicorn
+```
+- Freeze into requirements.txt:
+```text
+    pip3 freeze > requirements.txt
+```
+
+#### In the Root directory
+
+- Create a Procfile. This tells Heroku to run a web dyno
+- In the Procfile input:
+```text
+    web: gunicorn your_project_name_here.wsgi:application
+```
+
+#### In the terminal
+
+- Login into Heroku:
+```text
+    heroku login -i
+```
+- Enter your heroku login username
+- Enter your Heroku API key as the password
+- Disable collectstatic
+```text
+    heroku config:set DISABLE_COLLECTSTATIC=1 --app heroku_app_name_here
+```
+- This ensures, Heroku does not collect static files when you initially deploy.
+
+#### In settings.py
+
+- Add Heroku host name (deployed URL) into ```ALLOWED_HOSTS```
+
+#### In the terminal
+
+- Push the changes to Github:
+```text
+    git add .
+    git commit -m "deployment"
+    git push
+```
+- Push Changes to Heroku
+    - Initialize Heroku Git remote (if required)
+    ```text
+        heroku git:remote -a your_heroku_app_nanme_here
+    ```
+    - Push to Heroku
+    ```text
+        git push heroku main
+    ```
+
+#### In Heroku 
+
+Set up automatic deployment in the "Deploy" tab.
+
+- Connect the Github repository.
+    - Click "Connect to Github"
+    - Search for your repository
+    - Click "Connect"
+- Go to "Automatic deploys"
+    - Click " Enable Automatic Deploys"
+- With this set up, everytime the cide is push to Github, the code will automatically deploy to Heroku.
+
+#### Generate a new SECRET_KEY
+
+- To generate a new SECRET_KEY, this cone be done with an online secret key generator such as [djecrety](https://djecrety.ir/).
+
+#### In the Heroku Settings Tab
+
+- In the Config vars, add "SECRET_KEY" to the key field and the newly geneerated secret key to the value field.
+
+#### In settings.py
+
+- Replace the SECRET_KEY value with ```os.environ.get(SECRET_KEY, '')```
+
+#### In the terminal
+
+- Push the changes to github
+```text
+    git add .
+    git commit -m "Removed secret key"
+    git push
+```
+
