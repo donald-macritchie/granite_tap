@@ -1869,7 +1869,21 @@ The languages used in this project are:
 
 ---
 
-## Frameworks, Libraries and Technologies
+
+
+## Credits/References
+
+### Code
+
+- [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
+- [Django Documentation](https://docs.djangoproject.com/en/5.0/)
+- [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- Various support from Code Institutes Tutoring team.
+- [Adobe Stock](https://stock.adobe.com/uk/?gclid=Cj0KCQiAqsitBhDlARIsAGMR1RiXKFH8tRS9f5DkY8TaOUGXrEltr66HGHPyNuFcixJwztvNykhArWgaAmGeEALw_wcB&ef_id=Cj0KCQiAqsitBhDlARIsAGMR1RiXKFH8tRS9f5DkY8TaOUGXrEltr66HGHPyNuFcixJwztvNykhArWgaAmGeEALw_wcB:G:s&s_kwcid=AL!3085!3!610386024915!e!!g!!adobe%20stock!9547248708!145683474624&as_channel=sem&as_campclass=brand&as_campaign=UK|CPRO|Stock|PURCH|AS_Brand_Exact|GG||&as_source=google&mv=search&mv2=paidsearch&as_camptype=acquisition&sdid=WKRCJHQP&as_audience=core&gad_source=1)
+- [Stack Overflow](https://stackoverflow.com/)
+- [W3Schools](https://www.w3schools.com/)
+
+### Frameworks, Libraries and Technologies
 
 This projects used the following frameworks and libararies:
 
@@ -1891,20 +1905,6 @@ This projects used the following frameworks and libararies:
 - [Figma](https://www.figma.com/login?is_not_gen_0=true) - Used to create wireframes.
 - [Mailchimp](https://mailchimp.com/) - Newsletter signup.
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/) - Used to create the sites Privacy Policy. 
-
----
-
-## Credits/References
-
-### Code
-
-- [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
-- [Django Documentation](https://docs.djangoproject.com/en/5.0/)
-- [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-- Various support from Code Institutes Tutoring team.
-- [Adobe Stock](https://stock.adobe.com/uk/?gclid=Cj0KCQiAqsitBhDlARIsAGMR1RiXKFH8tRS9f5DkY8TaOUGXrEltr66HGHPyNuFcixJwztvNykhArWgaAmGeEALw_wcB&ef_id=Cj0KCQiAqsitBhDlARIsAGMR1RiXKFH8tRS9f5DkY8TaOUGXrEltr66HGHPyNuFcixJwztvNykhArWgaAmGeEALw_wcB:G:s&s_kwcid=AL!3085!3!610386024915!e!!g!!adobe%20stock!9547248708!145683474624&as_channel=sem&as_campclass=brand&as_campaign=UK|CPRO|Stock|PURCH|AS_Brand_Exact|GG||&as_source=google&mv=search&mv2=paidsearch&as_camptype=acquisition&sdid=WKRCJHQP&as_audience=core&gad_source=1)
-- [Stack Overflow](https://stackoverflow.com/)
-- [W3Schools](https://www.w3schools.com/)
 
 ### Images
 

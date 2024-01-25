@@ -326,3 +326,25 @@ footer {
         height: calc(100vh - 116px);
     }
 }
+
+/* For Tablet screen sizes 786px and below */
+@media screen and (max-width: 786px) {}
+
+/* For Mobile screen sizes 425px and below */
+@media screen and (max-width: 425px) {
+    #hero-text{
+        font-size: 1.8em;
+    }
+
+    footer{
+        font-size: 1em;
+    }
+
+    #sub-menus{
+        margin-bottom: 0;
+    }
+
+    #sub-menus li{
+        font-size: 0.9em;
+    }
+}
