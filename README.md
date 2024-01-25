@@ -711,20 +711,20 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 - As a **SITE ADMIN** I can **HAVE A FACEBOOK BUSINESS PAGE** so that **I CAN EXTEND MY POTENTIAL BUSINESS FURTHER**
 - As a **SITE USER** I can **SIGN UP TO A NEWSLETTER** so that **I CAN KEEP UP TO DAYTE WITH THE LATEST PRODUCTS AND INFORMATION FROM THE SITE**
 
----
+
 
 ### Agile Methodology
 
 - To implement Agile Methodology during this project, GitHub Projects was used. Epics were attached to ech User Story and within each User Story, an Acceptance Criteria was given to make clear when the User Story had been completed. Each User Story was also given Labels using the MoSCoW method. Most User Stories were given a "Must Have" label, while only a few contained "Should Have" or "Could Have". 
 - To view the Project kanban board, please click here - [Project Board](https://github.com/users/donald-macritchie/projects/9/views/1)
 
----
+
 
 ### Design
 
 #### Colour Scheme
 
-- The site uses a sinmple colour scheme of monochromatic colours throught.
+- The site uses a simple colour scheme of monochromatic colours throught.
 - Outside of the monochronme colours are bootstrap message colours
     - Red = Danger
     - Yellow = Warning
@@ -734,13 +734,13 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 #### Images
 
 - There is one main image on the site of the home page. Again using mainly monochromtaic colours with a hint of amber/orange.
+- This image was used to give users an immediate indication of what the site is about. 
 - The remaining images are all product images. 
 
 #### Font
 
-- The font used throughout the site is [Victor Mono](https://fonts.google.com/specimen/Victor+Mono). This was imported from Google fonts. Sans-serif has been used as a back up font incase of any import issues.
+- The font used throughout the site is [Victor Mono](https://fonts.google.com/specimen/Victor+Mono). This was imported from Google fonts. Sans-serif has been used as a back up font incase of any import issues. This font was used as while it is still clear to read for the user, it holds a "edgier" and modern look that is used throughout craft beer websites. 
 
----
 
 ### WireFrames
 
@@ -800,7 +800,11 @@ Wireframes were created using [Figma's](https://www.figma.com/) online wireframe
 ![wishlist page wireframe](static/screenshots/68_WF_wishlist.png)
 </details>
 
----
+### Database Schema
+
+- During developoment, the SQLite database was used. The deployed site uses Postgres.
+
+![image of the database schema](static/screenshots/97_database_schema.png)
 
 ### Defensive Design
 
