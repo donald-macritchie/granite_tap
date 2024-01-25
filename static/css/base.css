@@ -14,11 +14,8 @@ body {
 
 .custom-image {
     width: 196px;
-    /* Set the desired width */
     height: 500px;
-    /* Set the desired height */
     object-fit: cover;
-    /* Maintain aspect ratio and cover the container */
 }
 
 /* from Bulma */
@@ -328,7 +325,20 @@ footer {
 }
 
 /* For Tablet screen sizes 786px and below */
-@media screen and (max-width: 786px) {}
+@media screen and (max-width: 786px) {
+    .custom-image {
+        width: 150px;
+        height: 400px;
+        object-fit: cover;
+    }
+    #product-detail-image{
+        text-align: center;
+    }
+
+    #ymal-image{
+
+    }
+}
 
 /* For Mobile screen sizes 425px and below */
 @media screen and (max-width: 425px) {
@@ -350,5 +360,8 @@ footer {
 
     .delivery-text{
         font-size: 1.1em;
+    }
+    #product-detail-image{
+        text-align: center;
     }
 }
