@@ -1246,312 +1246,6 @@ Back to login button | When clicked, the Login/SignIn page will open | Clicked t
 | --| --| --| --|
 | Submit button | Once the user has input all their information into the required fields, when clicked, the form data will be stored in the admin and the user is redirected back to the about page | Entered information into the required fields and clicked submit | Redirect to about page. Form data stored in the admin | 
 
-### Automated Testing
-
-- The following tests were carried out using Djangos builtin TestCase
-
-#### About Model
-
-```python
-class AboutModelsTest(TestCase):
-    def setUp(self):
-        About.objects.create(title="Test About Title", content="Test About Content")
-        FAQ.objects.create(question="Test FAQ Question", answer="Test FAQ Answer")
-
-    # Testing the string representaion of the about model
-    def test_about_model_str(self):
-        about = About.objects.get(title="Test About Title")
-        self.assertEqual(str(about), "Test About Title")
-
-    # Testing the String representaion of the FAQ model
-    def test_faq_model_str(self):
-        faq = FAQ.objects.get(question="Test FAQ Question")
-        self.assertEqual(str(faq), "Test FAQ Question")
-```
-
-- Test Results:
-
-![image of aboutmodelstest result](static/screenshots/89_aboutmodelstest.png)
-
-##### About Views
-
-```python
-class AboutViewTests(TestCase):
-    def setUp(self):
-        self.about = About.objects.create(title='Test About', content='Test content')
-        self.faq = FAQ.objects.create(question='Test Question', answer='Test Answer')
-
-    def test_about_page_view(self):
-        client = Client()
-        url = reverse('about_page')
-        response = client.get(url)
-
-        # Assert the expected HTTP status code
-        self.assertEqual(response.status_code, 200)
-
-        # Assert that the correct template is being used
-        self.assertTemplateUsed(response, 'about/about.html')
-
-        # Assert that the about_content and faqs are present in the context
-        self.assertIn('about_content', response.context)
-        self.assertIn('faqs', response.context)
-
-        # Assert that the about_content and faqs match the data created in the setUp method
-        self.assertQuerysetEqual(response.context['about_content'], [repr(self.about)])
-        self.assertQuerysetEqual(response.context['faqs'], [repr(self.faq)])
-```
-
-- Test results:
-
-![image of about views tests](static/screenshots/90_aboutviewstest.png)
-
-##### Bag Views
-
-```python
-class BagViewTests(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.product = Product.objects.create(name='Test Product', price=10.0, abv="1.1")
-
-
-
-    def test_view_bag(self):
-        client = Client()
-        url = reverse('view_bag')
-        response = client.get(url)
-
-        # Assert the expected HTTP status code
-        self.assertEqual(response.status_code, 200)
-
-        # Assert that the correct template is being used
-        self.assertTemplateUsed(response, 'bag/bag.html')
-
-
-
-    def test_add_to_bag(self):
-        url = reverse('add_to_bag', args=[self.product.id])
-        response = self.client.post(url, {'quantity': 2, 'redirect_url': reverse('view_bag')})
-
-        # Assert the expected HTTP status code
-        self.assertEqual(response.status_code, 302)
-
-        # Follow the redirect to view_bag
-        response = self.client.get(response.url)
-
-        # Assert that the success message is present in the messages
-        messages = [m.message for m in list(response.context['messages'])]
-        self.assertIn(f'Added {self.product.name} to your bag', messages)
-
-
-    def test_adjust_bag_remove_product(self):
-        product = self.product
-        self.client.post(reverse('add_to_bag', args=[product.id]), {'quantity': 1, 'redirect_url': reverse('view_bag')})
-        item_id = str(product.id)
-        response = self.client.post(reverse('adjust_bag', args=[item_id]), {'quantity': 0})
-        bag = response.client.session.get('bag', {})
-
-        # Assert that the product is removed from the bag
-        self.assertNotIn(item_id, bag)
-
-    def test_remove_from_bag(self):
-        self.client.post(reverse('add_to_bag', args=[self.product.id]), {'quantity': 1, 'redirect_url': reverse('view_bag')})
-        item_id = str(self.product.id)
-        response = self.client.post(reverse('remove_from_bag', args=[item_id]))
-        self.assertEqual(response.status_code, 200)
-
-        # Check that the product is removed from the bag
-        bag = self.client.session.get('bag', {})
-        self.assertNotIn(item_id, bag)
-
-        # Check the success message
-        messages = [m.message for m in get_messages(response.wsgi_request)]
-        self.assertIn(f'Removed {self.product.name} from your bag', messages)
-```
-
-- Test Results:
-
-![image of the bag views tests](static/screenshots/91_bagviewtests.png)
-
-##### Checkout Models
-
-```python
-    class CheckoutModelTests(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.product = Product.objects.create(name='Test Product', price=10.0, abv="1.1")
-
-    def test_order_creation(self):
-        order = Order.objects.create(
-            user_profile=None,
-            full_name='Test User',
-            email='test@example.com',
-            phone_number='123456789',
-            country=Country('US'),
-            postcode='12345',
-            town_or_city='Test City',
-            street_address1='123 Test Street',
-            street_address2='Apt 4',
-            county='Test County',
-            original_bag='{}',
-            stripe_pid='testpid'
-        )
-
-        # Check if order number is generated
-        self.assertIsNotNone(order.order_number)
-
-        # Check if order total is zero initially
-        self.assertEqual(order.order_total, 0)
-
-        # Check if delivery cost is set to default
-        self.assertEqual(order.delivery_cost, 0)
-
-        # Check if grand total is initially zero
-        self.assertEqual(order.grand_total, 0)
-
-
-    def test_line_item_creation(self):
-        order = Order.objects.create(
-            user_profile=None,
-            full_name='Test User',
-            email='test@example.com',
-            phone_number='123456789',
-            country=Country('US'),
-            postcode='12345',
-            town_or_city='Test City',
-            street_address1='123 Test Street',
-            street_address2='Apt 4',
-            county='Test County',
-            original_bag='{}',
-            stripe_pid='testpid'
-        )
-
-        line_item = OrderLineItem.objects.create(
-            order=order,
-            product=self.product,
-            quantity=2,
-            lineitem_total=self.product.price * 2
-        )
-
-        # Check if the line item is associated with the correct order
-        self.assertEqual(line_item.order, order)
-
-    def test_order_total_calculation(self):
-        order = Order.objects.create(
-            user_profile=None,
-            full_name='Test User',
-            email='test@example.com',
-            phone_number='123456789',
-            country=Country('US'),
-            postcode='12345',
-            town_or_city='Test City',
-            street_address1='123 Test Street',
-            street_address2='Apt 4',
-            county='Test County',
-            original_bag='{}',
-            stripe_pid='testpid'
-        )
-
-        line_item1 = OrderLineItem.objects.create(
-            order=order,
-            product=self.product,
-            quantity=2,
-            lineitem_total=self.product.price * 2
-        )
-
-        line_item2 = OrderLineItem.objects.create(
-            order=order,
-            product=self.product,
-            quantity=3,
-            lineitem_total=self.product.price * 3
-        )
-
-        # Check if the order total is calculated correctly
-        self.assertEqual(order.order_total, line_item1.lineitem_total + line_item2.lineitem_total)
-```
-
-- Test Results:
-
-![imag of the checkout models tests](static/screenshots/92_checkoutmodeltests.png)
-
-##### Product Models
-
-```python
-class CategoryModelTest(TestCase):
-    def setUp(self):
-        self.category = Category.objects.create(name='Test Category', friendly_name='Friendly Category')
-
-    # Checks the string representation of the Category Model
-    def test_category_str_method(self):
-        self.assertEqual(str(self.category), 'Test Category')
-
-
-class RelatedProductModelTest(TestCase):
-    def setUp(self):
-        self.product = Product.objects.create(
-            name='Test Product',
-            brewery='Test Brewery',
-            abv=5.0,
-            description='Test Description',
-            volume='Test Volume',
-            price=20.0,
-        )
-        self.related_product = RelatedProduct.objects.create(product=self.product)
-
-    def test_related_product_str_method(self):
-        expected_str = f'Related product for {self.product.name}'
-        self.assertEqual(str(self.related_product), expected_str)
-
-class ProductModelTest(TestCase):
-    def setUp(self):
-        self.category = Category.objects.create(name='Test Category')
-        self.product = Product.objects.create(
-            category=self.category,
-            sku='TestSKU123',
-            name='Test Product',
-            brewery='Test Brewery',
-            abv=5.0,
-            description='Test Description',
-            volume='Test Volume',
-            price=20.0,
-        )
-
-    def test_product_str_method(self):
-        self.assertEqual(str(self.product), 'Test Product')
-```
-
-- Test Results
-
-![image of the product models test results](static/screenshots/93_productmodelstets.png)
-
-##### Wishlist
-
-```python
-class WishlistModelTest(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.product = Product.objects.create(
-            name='Test Product',
-            brewery='Test Brewery',
-            abv=5.0,
-            description='Test Description',
-            volume='Test Volume',
-            price=20.0,
-        )
-
-    def test_wishlist_creation(self):
-        wishlist = Wishlist.objects.create(user=self.user)
-        wishlist.products.add(self.product)
-
-        # checks number of wishlist items
-        self.assertEqual(Wishlist.objects.count(), 1)
-        # checks if expected user
-        self.assertEqual(wishlist.user, self.user)
-        # checks if added product is in the wishlist
-        self.assertTrue(wishlist.products.filter(pk=self.product.pk).exists())
-```
-- Test Result:
-
-![image of the wishlist testresults](static/screenshots/94_wishlist_test.png)
 
 ### Code Validation
 
@@ -2184,3 +1878,68 @@ This projects used the following frameworks and libararies:
 - [Font Awesome](https://fontawesome.com/) - Icon library and toolkit. 
 - [Google Fonts](https://fonts.google.com/) - Font imports.
 - [Figma](https://www.figma.com/login?is_not_gen_0=true) - Used to create wireframes.
+- [Mailchimp](https://mailchimp.com/) - Newsletter signup.
+- [Privacy Policy Generator](https://www.privacypolicygenerator.info/) - Used to create the sites Privacy Policy. 
+
+---
+
+## Credits/References
+
+### Code
+
+- [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
+- [Django Documentation](https://docs.djangoproject.com/en/5.0/)
+- [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- Various support from Code Institutes Tutoring team.
+- [Adobe Stock](https://stock.adobe.com/uk/?gclid=Cj0KCQiAqsitBhDlARIsAGMR1RiXKFH8tRS9f5DkY8TaOUGXrEltr66HGHPyNuFcixJwztvNykhArWgaAmGeEALw_wcB&ef_id=Cj0KCQiAqsitBhDlARIsAGMR1RiXKFH8tRS9f5DkY8TaOUGXrEltr66HGHPyNuFcixJwztvNykhArWgaAmGeEALw_wcB:G:s&s_kwcid=AL!3085!3!610386024915!e!!g!!adobe%20stock!9547248708!145683474624&as_channel=sem&as_campclass=brand&as_campaign=UK|CPRO|Stock|PURCH|AS_Brand_Exact|GG||&as_source=google&mv=search&mv2=paidsearch&as_camptype=acquisition&sdid=WKRCJHQP&as_audience=core&gad_source=1)
+- [Stack Overflow](https://stackoverflow.com/)
+- [W3Schools](https://www.w3schools.com/)
+
+### Images
+
+<details>
+<summary>Home Page Hero Image</summary>
+
+- [Homepage Hero Image](https://stock.adobe.com/uk/search?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=1&filters%5Bcontent_type%3Azip_vector%5D=1&filters%5Bcontent_type%3Avideo%5D=1&filters%5Bcontent_type%3Atemplate%5D=1&filters%5Bcontent_type%3A3d%5D=1&filters%5Bcontent_type%3Aimage%5D=1&k=beer+tap&order=relevance&safe_search=1&search_page=1&search_type=autosuggest&acp=0&aco=beer+tap&get_facets=0&asset_id=358302977)
+</details>
+ 
+<details>
+<summary>Product Images</summary>
+
+- [Brewdog's Punk IPA](https://www.tesco.com/groceries/en-GB/products/308107419)
+- [Brewdog's Lost Lager](https://www.tesco.com/groceries/en-GB/products/313836270)
+- [Brewdog's Hazy Jane](https://www.tesco.com/groceries/en-GB/products/308109741)
+- [Brewdog's Black Heart](https://www.tesco.com/groceries/en-GB/products/313952189)
+- [Brewdog's Rattle and Rum](https://www.tesco.com/groceries/en-GB/products/312707091)
+- [BrewToon's Weekend Hooker](https://www.brewtoon.com/item/238/BrewToon/Weekend-Hooker-440ml-Can.html) 
+- [BrewToon's Wired to the Toon](https://www.brewtoon.com/item/319/BrewToon/Wired-to-the-Toon-2023.html) 
+- [BrewToon's Trawlerman](https://www.brewtoon.com/item/223/BrewToon/Trawlerman-440ml-Can.html) 
+- [BrewToon's M'ango Unchained](https://www.brewtoon.com/item/231/BrewToon/Mango-Unchained-440ml-Can.html) 
+- [BrewToon's Sour to the People](https://www.brewtoon.com/item/233/BrewToon/Sour-to-the-People-440ml-Can.html)
+- [Fierce's Cerveza](https://fiercebeer.com/products/fierce-cerveza?_pos=1&_sid=b758a7d68&_ss=r)
+- [Fierce's Fierce IPA](https://fiercebeer.com/products/fierce-ipa?_pos=1&_sid=2c08ebe15&_ss=r) 
+- [Fierce's Forest Ranger](https://fiercebeer.com/products/forest-ranger?_pos=9&_sid=2c08ebe15&_ss=r) 
+- [Fierce's Cookie Dough](https://fiercebeer.com/products/cookie-dough-tartarus-collab-1?_pos=3&_sid=1fe7d465c&_ss=r) 
+- [Fierce's Black Grape Punch](https://fiercebeer.com/products/black-grape-punch?_pos=3&_sid=2b32e43fc&_ss=r)
+- [Six°North's Omniun](https://www.sixdnorth.co.uk/ipa/omnium) 
+- [Six°North's Barrel Aged Moon](https://www.sixdnorth.co.uk/dark/barrelagedmoon) 
+- [Six°North's Peleton](https://www.sixdnorth.co.uk/lager/peloton) 
+- [Six°North's Summer Bliss](https://www.sixdnorth.co.uk/fruit/summerbliss) 
+- [Six°North's Veledrome](https://www.sixdnorth.co.uk/ipa/velodrome)
+
+</details>
+
+### General
+### ReadMe Documentation
+
+- "Creating a Readme" - from Code Institute Diploma in Full Stack Software Development Course.
+- Code Institute's [readme template](https://github.com/Code-Institute-Solutions/readme-template)
+- Kera Cudmore's [readme examples](https://github.com/kera-cudmore/readme-examples)
+- [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#styling-text) 
+- Alison O'Keeffe's [Fresh Nest Readme Docs](https://github.com/AliOKeeffe/PP5-Fresh-Nest/blob/main/README.md)
+
+### Acknowledgements
+
+- A big thank you to Code Institute Mentor, Antonio Rodriguez, for all the help and support through this Project.
+- Also thanks to Code Institute Tutor, Oisin Tohak for all help and support given. 
+
