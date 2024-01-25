@@ -713,6 +713,13 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 
 ---
 
+### Agile Methodology
+
+- To implement Agile Methodology during this project, GitHub Projects was used. Epics were attached to ech User Story and within each User Story, an Acceptance Criteria was given to make clear when the User Story had been completed. Each User Story was also given Labels using the MoSCoW method. Most User Stories were given a "Must Have" label, while only a few contained "Should Have" or "Could Have". 
+- To view the Project kanban board, please click here - [Project Board](https://github.com/users/donald-macritchie/projects/9/views/1)
+
+---
+
 ### Design
 
 #### Colour Scheme
