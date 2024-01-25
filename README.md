@@ -2151,3 +2151,36 @@ In order to set up AWS, these steps were taken:
 **Ensure all Config Vars in Heroku match thise used in settings.py**
 
 With all this complete, the site is now deployed. 
+
+---
+
+## Languages
+
+The languages used in this project are:
+- HTML5
+- CSS3
+- JavaScript
+- Python
+
+---
+
+## Frameworks, Libraries and Technologies
+
+This projects used the following frameworks and libararies:
+
+- [Django](https://www.djangoproject.com/) - Main framework used
+- [Django Allauth](https://docs.allauth.org/en/latest/) - authentication library used to create User accounts.
+- [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) - Used to style html structure.
+- [PostgeSQL](https://www.postgresql.org/) - Deployed Database
+- [SQLite](https://www.sqlite.org/index.html) - Development Database
+- [Stripe](https://stripe.com/gb) - Secure Payments. 
+- [XML-Sitemaps](https://www.xml-sitemaps.com/) - Site Map Generator.
+- [AWS](https://aws.amazon.com/) - Static and media file storage.
+- [Django Storages](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html) - This backend implements the Django File Storage API for Amazon Web Services’s (AWS) Simple Storage Service (S3).
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - You use the AWS SDK for Python (Boto3) to create, configure, and manage AWS services, such as Amazon Simple Storage Service (Amazon S3).
+- [Django Countries](https://pypi.org/project/django-countries/) - A Django application that provides country choices for use with forms, flag icons static files, and a country field for models.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Manages django forms
+- [Github](https://github.com/) - Version Control and Agile tool. 
+- [Font Awesome](https://fontawesome.com/) - Icon library and toolkit. 
+- [Google Fonts](https://fonts.google.com/) - Font imports.
+- [Figma](https://www.figma.com/login?is_not_gen_0=true) - Used to create wireframes.
