@@ -1923,6 +1923,8 @@ The languages used in this project are:
 ### Code
 
 - [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
+    - Inspiration was taken from The Boutique Ado Walkthrough Project created by Code Institute. 
+    - Code from this repo was used in the Bag, Checkout, Products and Profiles App. 
 - [Django Documentation](https://docs.djangoproject.com/en/5.0/)
 - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 - Various support from Code Institutes Tutoring team.
