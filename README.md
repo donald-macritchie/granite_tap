@@ -1,14 +1,14 @@
 #  Granite Tap
 
-Granite Tap is a B2C e-commerce store selling locally sourced beer from breweries from Aberdeen and Aberdeenshire, Scotland.
+Granite Tap is a B2C e-commerce store selling locally sourced beer from breweries located in Aberdeen and Aberdeenshire, Scotland.
 
 Granite Tap is your go-to online platform for discovering and enjoying an exquisite selection of locally brewed beers from the vibrant and thriving beer scene in Aberdeen and Aberdeenshire, Scotland. We take pride in connecting beer enthusiasts with the finest creations of local breweries, offering a unique taste of the region's craft beer culture.
 
 The site is aimed at users who are looking to expand on their beer tastes. Rather than buying the same old, run of the mill beer from the supermarkets, users can experience a whole new world of beer and see what the North East of Scotland has to offer. 
 
-Users can view different types beers from different breweries, get information on each product and make purchases through an esy to use, payment system.
+Users can view different types of beer from different breweries, get information on each product and make purchases through an easy to use payment system.
 
-The payment system uses Stripe. 
+The payment system uses [Stripe](https://stripe.com/gb). 
 
 ***As this site is for educational purposes, please do not use real debit/credit card details whilst using the site.***
 
@@ -18,7 +18,52 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 ---
 
-CONTENTS
+- [Granite Tap](#granite-tap)
+  * [Features](#features)
+    + [Header](#header)
+    + [Main Navigation](#main-navigation)
+    + [Delivery Banner](#delivery-banner)
+    + [Footer](#footer)
+    + [Home Page](#home-page)
+    + [Products Page](#products-page)
+    + [Product Detail Page](#product-detail-page)
+    + [Shopping Bag](#shopping-bag)
+    + [Checkout](#checkout)
+    + [Order Confirmation](#order-confirmation)
+    + [My Profile](#my-profile)
+    + [Wishlist](#wishlist)
+    + [About Page](#about-page)
+    + [Product Management](#product-management)
+  * [User Experience (UX)](#user-experience--ux-)
+    + [User Stories](#user-stories)
+    + [Agile Methodology](#agile-methodology)
+    + [Design](#design)
+    + [WireFrames](#wireframes)
+    + [Database Schema](#database-schema)
+    + [Defensive Design](#defensive-design)
+  * [Business Model](#business-model)
+    + [Marketing Strategy](#marketing-strategy)
+      - [SEO](#seo)
+      - [Email marketing](#email-marketing)
+      - [Content Marketing](#content-marketing)
+      - [Social Media Marketing](#social-media-marketing)
+  * [Testing](#testing)
+    + [Manual Testing](#manual-testing)
+    + [Code Validation](#code-validation)
+    + [Device Testing](#device-testing)
+    + [Browser Tesing](#browser-tesing)
+    + [Bug Fixes](#bug-fixes)
+  * [Project Set Up and Deployment](#project-set-up-and-deployment)
+    + [Project Set Up](#project-set-up)
+    + [Deployment](#deployment)
+  * [Languages](#languages)
+  * [Credits/References](#credits-references)
+    + [Code](#code)
+    + [Frameworks, Libraries and Technologies](#frameworks--libraries-and-technologies)
+    + [Images](#images-1)
+    + [General](#general)
+    + [ReadMe Documentation](#readme-documentation)
+    + [Acknowledgements](#acknowledgements)
 
 ---
 
