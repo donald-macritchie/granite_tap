@@ -4,7 +4,9 @@ Granite Tap is a B2C e-commerce store selling locally sourced beer from brewerie
 
 Granite Tap is your go-to online platform for discovering and enjoying an exquisite selection of locally brewed beers from the vibrant and thriving beer scene in Aberdeen and Aberdeenshire, Scotland. We take pride in connecting beer enthusiasts with the finest creations of local breweries, offering a unique taste of the region's craft beer culture.
 
-The site is aimed at users who are looking to expand on their beer tastes. Rather than buying the same old, run of the mill beer from the supermarkets, users can experience a whole new world of beer and see what the North East of Scotland has to offer. 
+The site is aimed at users who are looking to expand on their beer tastes. Rather than buying the same old, run of the mill beer from the supermarkets, users can experience a whole new world of beer and see what the North East of Scotland has to offer.
+
+The site name "Granite Tap" is a nod to Aberdeen's nickname. Due to Aberdeen's locality to natural granite deposits and the use of Granite throughout the city's buildings, Aberdeen is also know as "The Granite City". 
 
 Users can view different types of beer from different breweries, get information on each product and make purchases through an easy to use payment system.
 
@@ -86,7 +88,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 ![This is an image of the searchbar](static/screenshots/4_searchbar.png)
 
 - The search bar is displayed at the top of the page, always accessible to the user.
-- The when a user inputs a pice of text, the results will return any product in which the product title or description holds.
+- When a user inputs a peice of text, the results will return any product in which the product title or description holds.
 
 #### About Icon
 
@@ -240,7 +242,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 - The Visit us on Facebook link will direct the user to Facebook Login page on a new tab.
 - As the Granite Tap site is for educational purposes, the Granite Tap Facebook buisness page has been deactivated.
-- To view screenshots of the Granite Tap Facebook business page, please see the [Granite Tap Web Marketing](#Granite-Tap-Web-Marketing) section.
+- To view screenshots of the Granite Tap Facebook business page, please see the Granite Tap Web Marketing section.
 
 #### Privacy Policy
 
@@ -260,7 +262,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 ### Products Page
 
-- Users can access the products page from the main nav as documented above.
+- Users can access the products page from the main nav or the "Shop Now" button as documented above.
 
 ![This is an image of the products page](static/screenshots/17_products_page.png)
 
@@ -270,7 +272,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 ![This is an image of the product count on the product page](static/screenshots/20_product_count.png)
 
-- The product page displays a product count of how many products come under any specific filter. This giove the user an indication of ow many products of that type there are.
+- The product page displays a product count of how many products come under any specific filter. This gives the user an indication of how many products of that type there are.
 
 #### Product Page Filtering
 
@@ -316,7 +318,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 ### Product Detail Page
 
-- When a user clicks on a product form the product page they are directed to the Product Detail page.
+- When a user clicks on a product from the product page they are directed to the Product Detail page.
 
 #### Product Specific Details
 
@@ -344,13 +346,13 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 ![This is an image of the quantity button in the product detail page](static/screenshots/25_product_detail_quantity_button.png)
 
 - Users can adjust the quantity of the product they want to add to their shopping bag.
-- This can be done by using either manually typing in the quantity or using the +/- buttons on either side of the input.
+- This can be done by either manually typing in the quantity or using the +/- buttons on either side of the input.
 
 #### Adding Products to the Shopping Bag
 
 ![This is an image of the Add to Bag button](static/screenshots/26_product_detail_add_to_bag.png)
 
-- When users have decided they want to add the product to their shopping bag, they can clcik the "Add to Bag" button.
+- When users have decided they want to add the product to their shopping bag, they can click the "Add to Bag" button.
 
 ##### Add to Bag Success Message
 
@@ -369,7 +371,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 ![This is an image of the keep shopping button](static/screenshots/28_product_detail_keep_shopping_button.png)
 
 - Within the Products Detail page, there is also a "Keep Shopping" button. 
-- If the user want to continue shopping, they acn click the "Keep shoppping" button and be redirected back to the products page.
+- If the user want to continue shopping, they can click the "Keep shoppping" button and be redirected back to the products page.
 
 #### You May Also Like...
 
@@ -503,7 +505,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 - Upon completion of a successful checkout, the user is redirected to an order confirmation.
 - Here, users will be able to review their order.
-- Once orders are completed, it will be assigned an order number to alow users to distinguish one order from the other. 
+- Once orders are completed, it will be assigned an order number to allow users to identify one order from the other. 
 - Users will also receive a confirmation email that is automaticaly generated using Django mail.
 
 ---
@@ -512,7 +514,7 @@ Take a look though the live project - [Granite Tap](https://granite-tap-d7fc252c
 
 ![image of the my profile page](static/screenshots/44_my_profile.png)
 
-- Users who have signed up to the site will be ale view their own profiles via the my account dropdown in the site header as documented above.
+- Users who have signed up to the site will be able view their own profiles via the my account dropdown in the site header as documented above.
 - The My Profile page consists of two main features:
     - Default Delivery Infomation
     - Order History
@@ -760,7 +762,7 @@ This who visit the Granite Tap will most likely those interested in purchasing b
 
 ### Agile Methodology
 
-- To implement Agile Methodology during this project, GitHub Projects was used. Epics were attached to ech User Story and within each User Story, an Acceptance Criteria was given to make clear when the User Story had been completed. Each User Story was also given Labels using the MoSCoW method. Most User Stories were given a "Must Have" label, while only a few contained "Should Have" or "Could Have". 
+- To implement Agile Methodology during this project, GitHub Projects was used. Epics were attached to each User Story and within each User Story, an Acceptance Criteria was given to make clear when the User Story had been completed. Each User Story was also given Labels using the MoSCoW method. Most User Stories were given a "Must Have" label, while only a few contained "Should Have" or "Could Have". 
 - To view the Project kanban board, please click here - [Project Board](https://github.com/users/donald-macritchie/projects/9/views/1)
 
 
@@ -1392,7 +1394,7 @@ Back to login button | When clicked, the Login/SignIn page will open | Clicked t
 
 ### Browser Tesing
 
-- The site has been tested on Google Chrom, Safari and Firefox. 
+- The site has been tested on Google Chrome, Safari and Firefox. 
 - No issues have been identified while using these browsers
 
 ### Bug Fixes

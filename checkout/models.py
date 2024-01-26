@@ -62,8 +62,6 @@ class Order(models.Model):
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
-            
-        # Calculate delivery cost based on a fixed amount or other logic
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = Decimal('3.50')
         else:
