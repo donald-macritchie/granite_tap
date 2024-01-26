@@ -16,15 +16,6 @@ class Category(models.Model):
         return self.friendly_name
 
 
-class RelatedProduct(models.Model):
-    product = models.ForeignKey(
-        'Product', on_delete=models.CASCADE,
-        related_name='related_products'
-    )
-
-    def __str__(self):
-        return f'Related product for {self.product.name}'
-
 
 class Product(models.Model):
     category = models.ForeignKey(
@@ -44,11 +35,6 @@ class Product(models.Model):
     )
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    related_products_list = models.ForeignKey(
-        RelatedProduct, on_delete=models.CASCADE,
-        null=True, blank=True,
-        related_name='related_products'
-    )
 
     def __str__(self):
         return self.name
